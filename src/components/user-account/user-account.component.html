@@ -1,59 +1,85 @@
 <div class="account-page">
-    <section class=" p-3">
-        <div class="container d-flex flex-column  mx-auto  p-4 bg-white  account-overview">
-            <div class="d-flex">
-                <i class="fa-credit-card fa-solid"></i>
-                <h6>Account Overview</h6>
-            </div>
-            <p class="d-block">Your account details and current balance</p>
-            <div class="d-flex justify-content-between">
-                <div class="d-flex flex-column">
-                    <p>Account Number</p>
-                    <h6>{{accountNumber}}</h6>
-                </div>
-                <div class="d-flex flex-column">
-                    <p>Account Type</p>
-                    <div class="typeContainer text-center">
-                        <h6>{{accountType}}</h6>
-                    </div>
-    
-                </div>
-                <div class="d-flex flex-column">
-                    <p>Current Balance</p>
-                    <h6 class="balance">{{accountBalance|currency}}</h6>
-                </div>
-            </div>
+
+  <!-- Account Overview Card -->
+  <section class="section">
+    <div class="card overview-card">
+      <div class="card-header-row">
+        <div class="card-title-group">
+          <div class="card-icon">
+            <i class="fa-solid fa-credit-card"></i>
+          </div>
+          <div>
+            <h5>Account Overview</h5>
+            <p>Your account details and current balance</p>
+          </div>
         </div>
-        <div>
-    
+      </div>
+
+      <div class="overview-stats">
+        <div class="stat-item">
+          <span class="stat-label">Account Number</span>
+          <span class="stat-value mono">{{ accountNumber }}</span>
         </div>
-    </section>
-    <section class="transactions">
-        <div class="container d-flex flex-column  mx-auto  p-4 bg-white ">
-            <h6>Recent Transactions</h6>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-label">Account Type</span>
+          <span class="type-badge">{{ accountType }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-label">Current Balance</span>
+          <span class="stat-value balance-value">{{ accountBalance | currency }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transactions Card -->
+  <section class="section">
+    <div class="card">
+      <div class="card-header-row">
+        <div class="card-title-group">
+          <div class="card-icon">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <div>
+            <h5>Recent Transactions</h5>
             <p>Your latest account activity</p>
-       
-       @for(tranaction of t ;track $index){
-        @if(tranaction.fromAccountNo===accountNumber||tranaction.ToAccountNo===accountNumber){
-       
-            <div class="container d-flex transaction mx-auto  p-4 bg-white justify-content-between">
-                <div class="d-flex flex-column">
-                    <h6>{{tranaction.description}}</h6>
-                    <p>{{tranaction.date|date}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="transactions-list">
+        @for(transaction of t; track $index) {
+          @if(transaction.fromAccountNo === accountNumber || transaction.ToAccountNo === accountNumber) {
+            <div class="transaction-row">
+              <div class="tx-left">
+                <div class="tx-icon" [class.tx-icon-in]="transaction.ToAccountNo === accountNumber"
+                                     [class.tx-icon-out]="transaction.fromAccountNo === accountNumber">
+                  @if(transaction.ToAccountNo === accountNumber) {
+                    <i class="fa-solid fa-arrow-down"></i>
+                  } @else {
+                    <i class="fa-solid fa-arrow-up"></i>
+                  }
                 </div>
                 <div>
-                    <div [ngClass]="{'positive':tranaction.ToAccountNo===accountNumber,'negative':tranaction.fromAccountNo===accountNumber}">
-                  @if(tranaction.fromAccountNo===accountNumber){--}
-                  @else{+}
-                    {{tranaction.amount|currency}}</div>
-                    <p>{{tranaction.type}}</p>
+                  <div class="tx-desc">{{ transaction.description }}</div>
+                  <div class="tx-date">{{ transaction.date | date }}</div>
                 </div>
+              </div>
+              <div class="tx-right">
+                <div class="tx-amount"
+                  [class.positive]="transaction.ToAccountNo === accountNumber"
+                  [class.negative]="transaction.fromAccountNo === accountNumber">
+                  {{ transaction.fromAccountNo === accountNumber ? '−' : '+' }}{{ transaction.amount | currency }}
                 </div>
+                <div class="tx-type">{{ transaction.type }}</div>
+              </div>
+            </div>
+          }
         }
-        
-       }
+      </div>
     </div>
-    </section>
-    <div>
-        </div>
+  </section>
+
 </div>

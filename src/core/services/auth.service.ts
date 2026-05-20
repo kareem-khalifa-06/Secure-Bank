@@ -8,56 +8,51 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-   users!:User[];
-  constructor(private _UserService:UserService, private _Router:Router) {}
 
-  getAllUsers() {
- return this._UserService.getAllUsers();
+  constructor(private _userService: UserService, private _router: Router) {}
+
+  getAllUsers(): Observable<User[]> {
+    return this._userService.getAllUsers();
   }
 
-  login(username: string, password: string | number) {
+  login(username: string, password: string | number): Observable<boolean> {
     return this.getAllUsers().pipe(
       map((users) => {
         const user = users.find(
-          (u) => u.username === username && u.password === password && u.isActive
+          (u) => u.username === username &&
+                 u.password === password &&
+                 u.isActive
         );
-        if (user) {
-          localStorage.setItem('currentUser', JSON.stringify({
-            userId: user.id,
-            role: user.role,
-            username: user.username,
-          }));
-          return true;
-        }
-        return false;
+
+        if (!user) throw new Error('Invalid credentials');
+
+        localStorage.setItem('currentUser', JSON.stringify({
+          userId: user.id,
+          role: user.role,
+          username: user.username,
+        }));
+
+        return true;
       })
     );
   }
-  
-  
-  getUserName():string|null{
-    const user=localStorage.getItem('currentUser')
-    if(user){
-      const userData=JSON.parse(user);
-      const userName=userData.username;
-      return userName
-    }
-    else return null
-   
-  }
 
-  logout(): void {
-    localStorage.removeItem('currentUser');
-    this._Router.navigate(['/']);
+  getUserName(): string | null {
+    const data = localStorage.getItem('currentUser');
+    return data ? JSON.parse(data).username : null;
   }
 
   getRole(): Role | null {
     const data = localStorage.getItem('currentUser');
-    if (data) return JSON.parse(data).role;
-    return null;
+    return data ? JSON.parse(data).role : null;
   }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('currentUser');
+  }
+
+  logout(): void {
+    localStorage.removeItem('currentUser');
+    this._router.navigate(['/']);
   }
 }

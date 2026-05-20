@@ -1,82 +1,99 @@
-<div class="bg-light p-3">
-    <div class="d-flex flex-column">
-        <h3>Transactions History</h3>
-        <p>View and filter your account transactions</p>
+<div class="page-shell">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-icon">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+    </div>
+    <div>
+      <h3>Transaction History</h3>
+      <p>View and filter your account transactions</p>
+    </div>
+  </div>
+
+  <!-- Filters Card -->
+  <div class="card filters-card">
+    <div class="card-section-title">
+      <i class="fa fa-filter"></i>
+      Filters
+    </div>
+    <div class="filters-row">
+      <div class="filter-group">
+        <label>Search Description</label>
+        <div class="input-wrap">
+          <i class="fa fa-search input-icon"></i>
+          <input type="text" class="filter-input" placeholder="Search by description..."
+            [(ngModel)]="searchTerm" />
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Transaction Type</label>
+        <select class="filter-select" [(ngModel)]="filterType">
+          <option value="All">All Types</option>
+          <option value="Credit">Credit</option>
+          <option value="Debit">Debit</option>
+        </select>
+      </div>
+    </div>
+    <div class="results-summary">
+      <i class="fa-solid fa-circle-info"></i>
+      Showing
+      <strong>{{ (t | filterTransactions: filterType : searchTerm : accountNo).length }}</strong>
+      of
+      <strong>{{ (t | filterTransactions: 'All' : '' : accountNo).length }}</strong>
+      transactions
+    </div>
+  </div>
+
+  <!-- Transactions List -->
+  <div class="card">
+    <div class="card-section-title">
+      <i class="fa-solid fa-list"></i>
+      Transactions
+      <span class="count-badge">
+        {{ (t | filterTransactions: filterType : searchTerm : accountNo).length }}
+      </span>
     </div>
 
-   
-    <section class="filters-section p-3">
-        <h5 class="card-title mb-3">
-            <i class="fa fa-filter" aria-hidden="true"></i> Filters
-        </h5>
-        <div class="row">
-        
-            <div class="row col-md-6">
-                <h6>Search Description</h6>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="search by description..."
-                        [(ngModel)]="searchTerm" />
+    <div class="transactions-list">
+      @for (transaction of (t | filterTransactions: filterType : searchTerm : accountNo); track $index) {
+        @if (transaction.ToAccountNo === accountNo || transaction.fromAccountNo === accountNo) {
+          <div class="transaction-row">
+            <div class="tx-left">
+              <div class="tx-icon"
+                [class.tx-icon-in]="transaction.ToAccountNo === accountNo"
+                [class.tx-icon-out]="transaction.fromAccountNo === accountNo">
+                @if (transaction.ToAccountNo === accountNo) {
+                  <i class="fa-solid fa-arrow-down"></i>
+                } @else {
+                  <i class="fa-solid fa-arrow-up"></i>
+                }
+              </div>
+              <div>
+                <div class="tx-desc">{{ transaction.description }}</div>
+                <div class="tx-meta">
+                  <span class="tx-date">{{ transaction.date | date }}</span>
+                  <span class="tx-type-badge"
+                    [class.badge-credit]="transaction.type === 'credit'"
+                    [class.badge-debit]="transaction.type === 'debit'">
+                    {{ transaction.type }}
+                  </span>
                 </div>
+              </div>
             </div>
 
-            <!-- Type filter -->
-            <div class="row col-md-6">
-                <h6>Transaction Type</h6>
-                <select class="form-select" [(ngModel)]="filterType">
-                    <option value="All">All</option>
-                    <option value="Credit">Credit</option>
-                    <option value="Debit">Debit</option>
-                </select>
+            <div class="tx-right">
+              <div class="tx-amount"
+                [class.positive]="transaction.ToAccountNo === accountNo"
+                [class.negative]="transaction.fromAccountNo === accountNo">
+                {{ transaction.fromAccountNo === accountNo ? '−' : '+' }}{{ transaction.amount | currency }}
+              </div>
+              <div class="tx-id">ID #{{ $index + 1 }}</div>
             </div>
-        </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
 
-        <p class="row m-1">
-            Showing
-            {{ (t | filterTransactions: filterType : searchTerm: accountNo).length }}
-            of {{ (t | filterTransactions: 'All' : '': accountNo).length }} transactions
-        </p>
-    </section>
-
-    <!-- Transactions List -->
-    <section class="p-3 filters-section">
-        <h6>Transactions</h6>
-        <p>{{(t|filterTransactions:filterType:searchTerm: accountNo).length}} transactions found</p>
-        <div class="container">
-            @for (transaction of (t | filterTransactions:filterType:searchTerm: accountNo); track $index) {
-            @if (transaction.ToAccountNo === accountNo || transaction.fromAccountNo === accountNo) {
-            <div class="container d-flex transaction mx-auto p-4 bg-white justify-content-between mb-2">
-                <!-- Left side -->
-                <div class="d-flex flex-column">
-                    <h6>{{ transaction.description }}</h6>
-                    <div class="d-flex gap-2">
-                        <p>{{ transaction.date | date }}</p>
-                        <div [ngClass]="{
-                      credit: transaction.type === 'credit',
-                      debit: transaction.type === 'debit'
-                    }">
-                            {{ transaction.type }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right side -->
-                <div>
-                    <div [ngClass]="{
-                    positive: transaction.ToAccountNo === accountNo,
-                    negative: transaction.fromAccountNo === accountNo
-                  }">
-                        @if (transaction.fromAccountNo === accountNo) { -- } @else { + }
-                        {{ transaction.amount | currency }}
-                        <p>Transaction ID: {{ $index + 1 }}</p>
-                    </div>
-                </div>
-            </div>
-            }
-            }
-        </div>
-    </section>
 </div>
-  
