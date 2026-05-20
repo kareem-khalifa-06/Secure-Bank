@@ -1,0 +1,972 @@
+{
+  "User": [
+    {
+      "id": "2",
+      "username": "admin_alice",
+      "password": "Adm!nP@ss2023",
+      "role": "Admin",
+      "isActive": true,
+      "email": "alice.admin@bank.com",
+      "phone": "+15559876543"
+    },
+    {
+      "id": "3",
+      "username": "m_smith",
+      "password": "TempP@ss123",
+      "role": "User",
+      "isActive": false,
+      "email": "m.smith@example.com",
+      "phone": "+15557778888"
+    },
+    {
+      "id": "4",
+      "username": "jane_white",
+      "password": "J@n3Wh!t3",
+      "role": "User",
+      "isActive": true,
+      "email": "jane.white@example.com",
+      "phone": "+15553334444"
+    },
+    {
+      "id": "5",
+      "username": "sys_admin",
+      "password": "R00t@Bank!",
+      "role": "Admin",
+      "isActive": true,
+      "email": "sysadmin@bank.com",
+      "phone": "+15556667777"
+    },
+    {
+      "id": "6",
+      "username": "inactive_user",
+      "password": "OldP@ss123",
+      "role": "User",
+      "isActive": false,
+      "email": "inactive@example.com",
+      "phone": "+15551112222"
+    },
+    {
+      "id": "7",
+      "username": "aliceee",
+      "password": "Alicee123!",
+      "role": "User",
+      "isActive": true,
+      "email": "robert.k@example.com",
+      "phone": "+15554445555"
+    },
+    {
+      "id": "8",
+      "username": "audit_admin",
+      "password": "Aud!tP@ss",
+      "role": "Admin",
+      "isActive": true,
+      "email": "audit@bank.com",
+      "phone": "+15558889999"
+    },
+    {
+      "id": "9",
+      "username": "lisa_green",
+      "password": "L!s@2023",
+      "role": "User",
+      "isActive": true,
+      "email": "lisa.green@example.com",
+      "phone": "+15550001111"
+    },
+    {
+      "id": "10",
+      "username": "support_admin",
+      "password": "Supp0rt!23",
+      "role": "Admin",
+      "isActive": true,
+      "email": "support@bank.com",
+      "phone": "+1555222333"
+    },
+    {
+      "id": "11",
+      "username": "dav\\\"id\\\"_m",
+      "password": "D@v1dM#",
+      "role": "User",
+      "isActive": false,
+      "email": "dav\\\"id\\\".m@example.com",
+      "phone": "+15556669999"
+    },
+    {
+      "id": "12",
+      "username": "finance_admin",
+      "password": "F!n@nc3",
+      "role": "Admin",
+      "isActive": true,
+      "email": "finance@bank.com",
+      "phone": "+15557770000"
+    },
+    {
+      "id": "13",
+      "username": "sarah_k",
+      "password": "S@r@h123",
+      "role": "User",
+      "isActive": true,
+      "email": "sarah.k@example.com",
+      "phone": "+15558881111"
+    },
+    {
+      "id": "14",
+      "username": "security_admin",
+      "password": "S3cur!ty@",
+      "role": "Admin",
+      "isActive": true,
+      "email": "security@bank.com",
+      "phone": "+15559992222"
+    },
+    {
+      "id": "15",
+      "username": "thomas_b",
+      "password": "Th0m@sB",
+      "role": "User",
+      "isActive": false,
+      "email": "thomas.b@example.com",
+      "phone": "+15551113333"
+    },
+    {
+      "id": "16",
+      "username": "hr_admin",
+      "password": "Hr@Bank1",
+      "role": "Admin",
+      "isActive": true,
+      "email": "hr@bank.com",
+      "phone": "+15552224444"
+    },
+    {
+      "id": "17",
+      "username": "emily_r",
+      "password": "3m!lyR#",
+      "role": "User",
+      "isActive": true,
+      "email": "emily.r@example.com",
+      "phone": "+15553335555"
+    },
+    {
+      "id": "18",
+      "username": "it_admin",
+      "password": "1T@dmin!",
+      "role": "Admin",
+      "isActive": true,
+      "email": "it@bank.com",
+      "phone": "+15554446666"
+    },
+    {
+      "id": "19",
+      "username": "inactive_customer",
+      "password": "OldP@ss456",
+      "role": "User",
+      "isActive": false,
+      "email": "inactive.customer@example.com",
+      "phone": "+15555557777"
+    },
+    {
+      "id": "20",
+      "username": "marketing_admin",
+      "password": "M@rk3t!ng",
+      "role": "Admin",
+      "isActive": true,
+      "email": "marketing@bank.com",
+      "phone": "+15556668888"
+    },
+    {
+      "id": "21",
+      "username": "peter_w",
+      "password": "P3t3rW!",
+      "role": "User",
+      "isActive": true,
+      "email": "peter.w@example.com",
+      "phone": "+15557779999"
+    },
+    {
+      "id": "22",
+      "username": "operations_admin",
+      "password": "0p3r@t0r",
+      "role": "Admin",
+      "isActive": true,
+      "email": "operations@bank.com",
+      "phone": "+15558880000"
+    },
+    {
+      "id": "23",
+      "username": "olivia_m",
+      "password": "0l!v1@M",
+      "role": "User",
+      "isActive": false,
+      "email": "olivia.m@example.com",
+      "phone": "+15559991111"
+    },
+    {
+      "id": "24",
+      "username": "olivia_m",
+      "password": "0l!v1@M",
+      "role": "User",
+      "isActive": false,
+      "email": "olivia.m@example.com",
+      "phone": "+15559991111"
+    },
+    {
+      "id": "25",
+      "username": "james_l",
+      "password": "J@m3sL#",
+      "role": "User",
+      "isActive": true,
+      "email": "james.l@example.com",
+      "phone": "+15551114444"
+    },
+    {
+      "id": "26",
+      "username": "compliance_admin",
+      "password": "C0mply!23",
+      "role": "Admin",
+      "isActive": true,
+      "email": "compliance@bank.com",
+      "phone": "+15552225555"
+    },
+    {
+      "id": "27",
+      "username": "sophia_c",
+      "password": "S0ph!@C",
+      "role": "User",
+      "isActive": false,
+      "email": "sophia.c@example.com",
+      "phone": "+15553336666"
+    },
+    {
+      "id": "28",
+      "username": "risk_admin",
+      "password": "R!sk@456",
+      "role": "Admin",
+      "isActive": true,
+      "email": "risk@bank.com",
+      "phone": "+15554447777"
+    },
+    {
+      "id": "29",
+      "username": "daniel_t",
+      "password": "D@n13lT",
+      "role": "User",
+      "isActive": true,
+      "email": "daniel.t@example.com",
+      "phone": "+15555558888"
+    },
+    {
+      "id": "30",
+      "username": "backend_admin",
+      "password": "B@ck3nd!",
+      "role": "Admin",
+      "isActive": true,
+      "email": "backend@bank.com",
+      "phone": "+15556669999"
+    },
+    {
+      "id": "31",
+      "username": "admin",
+      "password": "admin123",
+      "role": "Admin",
+      "isActive": true,
+      "email": "backend@bank.com",
+      "phone": "+15556669999"
+    },
+    {
+      "id": "32",
+      "username": "kareem",
+      "password": "Kareem123!",
+      "role": "User",
+      "isActive": true,
+      "email": "backend@bank.com",
+      "phone": "+15556669999"
+    }
+  ],
+  "Account": [
+    {
+      "id": "2",
+      "userId": "2",
+      "accountNo": "ACC2001",
+      "balance": 11800,
+      "accountType": "savings"
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "accountNo": "ACC3001",
+      "balance": 11800,
+      "accountType": "savings"
+    },
+    {
+      "id": "4",
+      "userId": "4",
+      "accountNo": "ACC4001",
+      "balance": 4200,
+      "accountType": "checking"
+    },
+    {
+      "id": "5",
+      "userId": "5",
+      "accountNo": "ACC5001",
+      "balance": 15000,
+      "accountType": "business"
+    },
+    {
+      "id": "6",
+      "userId": "6",
+      "accountNo": "ACC6001",
+      "balance": 350,
+      "accountType": "savings"
+    },
+    {
+      "id": "7",
+      "userId": "7",
+      "accountNo": "ACC7001",
+      "balance": 151800,
+      "accountType": "checking"
+    },
+    {
+      "id": "8",
+      "userId": "8",
+      "accountNo": "ACC8001",
+      "balance": 25000,
+      "accountType": "business"
+    },
+    {
+      "id": "9",
+      "userId": "9",
+      "accountNo": "ACC9001",
+      "balance": 3200,
+      "accountType": "savings"
+    },
+    {
+      "id": "10",
+      "userId": "10",
+      "accountNo": "ACC10001",
+      "balance": 3200,
+      "accountType": "savings"
+    },
+    {
+      "id": "11",
+      "userId": "11",
+      "accountNo": "ACC11001",
+      "balance": 950,
+      "accountType": "savings"
+    },
+    {
+      "id": "12",
+      "userId": "12",
+      "accountNo": "ACC12001",
+      "balance": 42000,
+      "accountType": "investment"
+    },
+    {
+      "id": "13",
+      "userId": "13",
+      "accountNo": "ACC13001",
+      "balance": 7800,
+      "accountType": "checking"
+    },
+    {
+      "id": "14",
+      "userId": "14",
+      "accountNo": "ACC14001",
+      "balance": 22000,
+      "accountType": "business"
+    },
+    {
+      "id": "15",
+      "userId": "15",
+      "accountNo": "ACC15001",
+      "balance": 1200,
+      "accountType": "savings"
+    },
+    {
+      "id": "16",
+      "userId": "16",
+      "accountNo": "ACC16001",
+      "balance": 19000,
+      "accountType": "business"
+    },
+    {
+      "id": "17",
+      "userId": "17",
+      "accountNo": "ACC17001",
+      "balance": 5600,
+      "accountType": "checking"
+    },
+    {
+      "id": "18",
+      "userId": "18",
+      "accountNo": "ACC18001",
+      "balance": 28000,
+      "accountType": "business"
+    },
+    {
+      "id": "19",
+      "userId": "19",
+      "accountNo": "ACC19001",
+      "balance": 600,
+      "accountType": "savings"
+    },
+    {
+      "id": "20",
+      "userId": "20",
+      "accountNo": "ACC20001",
+      "balance": 17000,
+      "accountType": "business"
+    },
+    {
+      "id": "21",
+      "userId": "21",
+      "accountNo": "ACC21001",
+      "balance": 17000,
+      "accountType": "business"
+    },
+    {
+      "id": "22",
+      "userId": "22",
+      "accountNo": "ACC22001",
+      "balance": 32000,
+      "accountType": "business"
+    },
+    {
+      "id": "23",
+      "userId": "23",
+      "accountNo": "ACC23001",
+      "balance": 1500,
+      "accountType": "savings"
+    },
+    {
+      "id": "24",
+      "userId": "24",
+      "accountNo": "ACC24001",
+      "balance": 1500,
+      "accountType": "savings"
+    },
+    {
+      "id": "25",
+      "userId": "25",
+      "accountNo": "ACC25001",
+      "balance": 15000,
+      "accountType": "savings"
+    },
+    {
+      "id": "26",
+      "userId": "26",
+      "accountNo": "ACC26001",
+      "balance": 1500,
+      "accountType": "savings"
+    },
+    {
+      "id": "27",
+      "userId": "27",
+      "accountNo": "ACC27001",
+      "balance": 18000,
+      "accountType": "savings"
+    },
+    {
+      "id": "28",
+      "userId": "28",
+      "accountNo": "ACC28001",
+      "balance": 18000,
+      "accountType": "savings"
+    },
+    {
+      "id": "29",
+      "userId": "29",
+      "accountNo": "ACC29001",
+      "balance": 6400,
+      "accountType": "checking"
+    },
+    {
+      "id": "30",
+      "userId": "30",
+      "accountNo": "ACC30001",
+      "balance": 26000,
+      "accountType": "business"
+    },
+    {
+      "id": "31",
+      "userId": "31",
+      "accountNo": "ACC31001",
+      "balance": 15000,
+      "accountType": "business"
+    },
+    {
+      "id": "32",
+      "userId": "32",
+      "accountNo": "ACC32001",
+      "balance": 9894100,
+      "accountType": "checking"
+    }
+  ],
+  "Transaction": [
+    {
+      "id": "1",
+      "fromAccountNo": "ACC1001",
+      "ToAccountNo": "ACC2001",
+      "amount": 200,
+      "date": "2025-08-01T10:00:00Z",
+      "description": "Transfer to John",
+      "type": "debit"
+    },
+    {
+      "id": "2",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC1001",
+      "amount": 500,
+      "date": "2025-08-05T15:30:00Z",
+      "description": "Salary Deposit",
+      "type": "credit"
+    },
+    {
+      "id": "3",
+      "fromAccountNo": "ACC1001",
+      "ToAccountNo": "ACC3001",
+      "amount": 150,
+      "date": "2025-08-07T09:45:00Z",
+      "description": "Bill Payment",
+      "type": "debit"
+    },
+    {
+      "id": "4",
+      "fromAccountNo": "ACC5001",
+      "ToAccountNo": "ACC1001",
+      "amount": 1200,
+      "date": "2025-08-08T12:10:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "5",
+      "fromAccountNo": "ACC1001",
+      "ToAccountNo": "ACC4001",
+      "amount": 300,
+      "date": "2025-08-09T18:00:00Z",
+      "description": "Gift",
+      "type": "debit"
+    },
+    {
+      "id": "6",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC5001",
+      "amount": 750,
+      "date": "2025-08-10T14:20:00Z",
+      "description": "Service Payment",
+      "type": "debit"
+    },
+    {
+      "id": "7",
+      "fromAccountNo": "ACC3001",
+      "ToAccountNo": "ACC2001",
+      "amount": 100,
+      "date": "2025-08-11T08:15:00Z",
+      "description": "Repayment",
+      "type": "credit"
+    },
+    {
+      "id": "8",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC6001",
+      "amount": 50,
+      "date": "2025-08-12T11:30:00Z",
+      "description": "Charity",
+      "type": "debit"
+    },
+    {
+      "id": "9",
+      "fromAccountNo": "ACC4001",
+      "ToAccountNo": "ACC2001",
+      "amount": 420,
+      "date": "2025-08-13T13:45:00Z",
+      "description": "Invoice Payment",
+      "type": "credit"
+    },
+    {
+      "id": "10",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC7001",
+      "amount": 680,
+      "date": "2025-08-14T16:20:00Z",
+      "description": "Shopping",
+      "type": "debit"
+    },
+    {
+      "id": "11",
+      "fromAccountNo": "ACC5001",
+      "ToAccountNo": "ACC2001",
+      "amount": 1500,
+      "date": "2025-08-15T09:10:00Z",
+      "description": "Business Payment",
+      "type": "credit"
+    },
+    {
+      "id": "12",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC8001",
+      "amount": 2500,
+      "date": "2025-08-16T14:35:00Z",
+      "description": "Investment",
+      "type": "debit"
+    },
+    {
+      "id": "13",
+      "fromAccountNo": "ACC6001",
+      "ToAccountNo": "ACC2001",
+      "amount": 35,
+      "date": "2025-08-17T17:25:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "14",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC9001",
+      "amount": 320,
+      "date": "2025-08-18T10:50:00Z",
+      "description": "Transfer",
+      "type": "debit"
+    },
+    {
+      "id": "15",
+      "fromAccountNo": "ACC7001",
+      "ToAccountNo": "ACC2001",
+      "amount": 680,
+      "date": "2025-08-19T15:15:00Z",
+      "description": "Repayment",
+      "type": "credit"
+    },
+    {
+      "id": "16",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC10001",
+      "amount": 1800,
+      "date": "2025-08-20T12:30:00Z",
+      "description": "Business Expense",
+      "type": "debit"
+    },
+    {
+      "id": "17",
+      "fromAccountNo": "ACC8001",
+      "ToAccountNo": "ACC2001",
+      "amount": 1250,
+      "date": "2025-08-21T16:45:00Z",
+      "description": "Dividend",
+      "type": "credit"
+    },
+    {
+      "id": "18",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC11001",
+      "amount": 95,
+      "date": "2025-08-22T09:20:00Z",
+      "description": "Payment",
+      "type": "debit"
+    },
+    {
+      "id": "19",
+      "fromAccountNo": "ACC9001",
+      "ToAccountNo": "ACC2001",
+      "amount": 160,
+      "date": "2025-08-23T14:10:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "20",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC12001",
+      "amount": 2100,
+      "date": "2025-08-24T11:40:00Z",
+      "description": "Investment",
+      "type": "debit"
+    },
+    {
+      "id": "21",
+      "fromAccountNo": "ACC10001",
+      "ToAccountNo": "ACC2001",
+      "amount": 900,
+      "date": "2025-08-25T15:55:00Z",
+      "description": "Service Fee",
+      "type": "credit"
+    },
+    {
+      "id": "22",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC13001",
+      "amount": 780,
+      "date": "2025-08-26T10:25:00Z",
+      "description": "Transfer",
+      "type": "debit"
+    },
+    {
+      "id": "23",
+      "fromAccountNo": "ACC11001",
+      "ToAccountNo": "ACC2001",
+      "amount": 47,
+      "date": "2025-08-27T13:15:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "24",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC14001",
+      "amount": 1100,
+      "date": "2025-08-28T16:30:00Z",
+      "description": "Payment",
+      "type": "debit"
+    },
+    {
+      "id": "25",
+      "fromAccountNo": "ACC12001",
+      "ToAccountNo": "ACC2001",
+      "amount": 10500,
+      "date": "2025-08-29T09:45:00Z",
+      "description": "Dividend Payment",
+      "type": "credit"
+    },
+    {
+      "id": "26",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC15001",
+      "amount": 120,
+      "date": "2025-08-30T14:20:00Z",
+      "description": "Charity",
+      "type": "debit"
+    },
+    {
+      "id": "27",
+      "fromAccountNo": "ACC13001",
+      "ToAccountNo": "ACC2001",
+      "amount": 390,
+      "date": "2025-08-31T17:05:00Z",
+      "description": "Repayment",
+      "type": "credit"
+    },
+    {
+      "id": "28",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC16001",
+      "amount": 950,
+      "date": "2025-09-01T10:50:00Z",
+      "description": "Business Expense",
+      "type": "debit"
+    },
+    {
+      "id": "29",
+      "fromAccountNo": "ACC14001",
+      "ToAccountNo": "ACC2001",
+      "amount": 550,
+      "date": "2025-09-02T13:35:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "30",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC17001",
+      "amount": 560,
+      "date": "2025-09-03T16:40:00Z",
+      "description": "Transfer",
+      "type": "debit"
+    },
+    {
+      "id": "31",
+      "fromAccountNo": "ACC15001",
+      "ToAccountNo": "ACC2001",
+      "amount": 60,
+      "date": "2025-09-04T09:25:00Z",
+      "description": "Repayment",
+      "type": "credit"
+    },
+    {
+      "id": "32",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC18001",
+      "amount": 1400,
+      "date": "2025-09-05T12:15:00Z",
+      "description": "Investment",
+      "type": "debit"
+    },
+    {
+      "id": "33",
+      "fromAccountNo": "ACC16001",
+      "ToAccountNo": "ACC2001",
+      "amount": 475,
+      "date": "2025-09-06T15:30:00Z",
+      "description": "Service Payment",
+      "type": "credit"
+    },
+    {
+      "id": "34",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC19001",
+      "amount": 60,
+      "date": "2025-09-07T18:20:00Z",
+      "description": "Donation",
+      "type": "debit"
+    },
+    {
+      "id": "35",
+      "fromAccountNo": "ACC17001",
+      "ToAccountNo": "ACC2001",
+      "amount": 280,
+      "date": "2025-09-08T11:10:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "36",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC20001",
+      "amount": 850,
+      "date": "2025-09-09T14:45:00Z",
+      "description": "Business Expense",
+      "type": "debit"
+    },
+    {
+      "id": "37",
+      "fromAccountNo": "ACC18001",
+      "ToAccountNo": "ACC2001",
+      "amount": 700,
+      "date": "2025-09-10T17:30:00Z",
+      "description": "Dividend",
+      "type": "credit"
+    },
+    {
+      "id": "38",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC21001",
+      "amount": 445,
+      "date": "2025-09-11T10:15:00Z",
+      "description": "Payment",
+      "type": "debit"
+    },
+    {
+      "id": "39",
+      "fromAccountNo": "ACC19001",
+      "ToAccountNo": "ACC2001",
+      "amount": 30,
+      "date": "2025-09-12T13:40:00Z",
+      "description": "Refund",
+      "type": "credit"
+    },
+    {
+      "id": "40",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC22001",
+      "amount": 1600,
+      "date": "2025-09-13T16:25:00Z",
+      "description": "Investment",
+      "type": "debit"
+    },
+    {
+      "id": "41",
+      "fromAccountNo": "ACC20001",
+      "ToAccountNo": "ACC2001",
+      "amount": 425,
+      "date": "2025-09-14T09:50:00Z",
+      "description": "Service Payment",
+      "type": "credit"
+    },
+    {
+      "id": "42",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC23001",
+      "amount": 75,
+      "date": "2025-09-15T12:35:00Z",
+      "description": "Transfer",
+      "type": "debit"
+    },
+    {
+      "id": "43",
+      "fromAccountNo": "ACC21001",
+      "ToAccountNo": "ACC2001",
+      "amount": 222,
+      "date": "2025-09-16T15:20:00Z",
+      "description": "Repayment",
+      "type": "credit"
+    },
+    {
+      "id": "44",
+      "fromAccountNo": "ACC2001",
+      "ToAccountNo": "ACC24001",
+      "amount": 2500,
+      "date": "2025-09-17T18:05:00Z",
+      "description": "Business Investment",
+      "type": "debit"
+    },
+    {
+      "id": "45",
+      "fromAccountNo": "ACC22001",
+      "ToAccountNo": "ACC2001",
+      "amount": 800,
+      "date": "2025-09-18T11:30:00Z",
+      "description": "Dividend",
+      "type": "credit"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC7001",
+      "fromAccountNo": "ACC32001",
+      "amount": 1000,
+      "date": "2025-09-17T09:43:53.261Z",
+      "type": "credit",
+      "description": "demo transaction"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC1001",
+      "fromAccountNo": "ACC32001",
+      "amount": 100000,
+      "date": "2025-09-21T15:10:49.510Z",
+      "type": "credit",
+      "description": ""
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC1001",
+      "fromAccountNo": "ACC32001",
+      "amount": 100000,
+      "date": "2025-09-22T23:41:25.366Z",
+      "type": "credit",
+      "description": "HBD"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC32001",
+      "fromAccountNo": "ACC1001",
+      "amount": 100000,
+      "date": "2025-09-22T23:42:37.804Z",
+      "type": "credit",
+      "description": "kkkk"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC1001",
+      "fromAccountNo": "ACC32001",
+      "amount": 100,
+      "date": "2025-09-22T23:43:36.471Z",
+      "type": "credit",
+      "description": "demo"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC1001",
+      "fromAccountNo": "ACC32001",
+      "amount": 10000,
+      "date": "2025-10-03T07:12:17.021Z",
+      "type": "credit",
+      "description": "HBD"
+    },
+    {
+      "id": "46",
+      "ToAccountNo": "ACC1001",
+      "fromAccountNo": "ACC32001",
+      "amount": 10100,
+      "date": "2025-10-03T07:41:56.412Z",
+      "type": "credit",
+      "description": "demo"
+    }
+  ]
+}

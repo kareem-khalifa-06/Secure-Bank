@@ -1,0 +1,288 @@
+Project Title: Banking System App
+Objective
+Build a simple Angular application that demonstrates routing, dependency injection, guards, lazy loading, pipes, Enums, and HTTP services.
+The app allows users to log in as either Admin or User, manage accounts and transactions, and navigate through role-based dashboards.
+
+Functional Requirements
+1. Login Page
+·        Use Reactive Forms with validation (username, password).
+
+·        Authenticate against mock/static users.
+
+·        If login succeeds, store user’s role in local Storage.
+
+·        Redirect based on role:
+
+o   Admin → /admin
+
+o   User → /user
+
+2. User Dashboard
+·        Display user’s account information (account number, account type, balance).
+
+·        Show recent transactions in a list.
+
+·        Provide a fund transfer form:
+
+o   Fields: Receiver Account No, Amount, Description.
+
+o   On submit, add a transaction to the list.
+
+·        Use @if to show “No transactions found” if empty.
+
+·        Use a currency pipe to format balances and amounts.
+
+3. Transactions View (User Only)
+·        List all transactions with:
+
+o   Date
+
+o   Amount
+
+o   Transaction type (Credit/Debit)
+
+o   Description
+
+·        Add a filter bar:
+
+o   Filter by transaction type (Credit/Debit).
+
+o   Search by description.
+
+4. Admin Dashboard
+·        Show all registered users with:
+
+o   Username
+
+o   Email
+
+o   Role
+
+o   Account status (Active/Inactive)
+
+·        Provide actions:
+
+o   Deactivate/Activate User (toggle active status).
+
+o   add, edit, delete User form (username, password, role, email).
+
+·        Use @for for listing users.
+
+·        Use *ngClass to style inactive users differently.
+
+5. Navbar (Main Navigation)
+·        A shared navbar component should be visible.
+
+·        The navbar contains links like Home, My Account, Transactions, Admin Panel.
+
+·        Use routerLink and routerLinkActive for navigation.
+
+·        Navbar items are conditionally displayed depending on the role:
+
+o   Regular users only see: Home, My Account, Transactions, fund transfer.
+
+o   Admin sees: Home, Admin Panel.
+
+·        Add a Logout button on the navbar that resets the session and returns to the Login page.
+
+ 
+
+Technical Concepts Covered
+Dependency Injection
+·        AuthService for login/logout and storing role/token.
+
+·        AccountService for accounts and transactions.
+
+·        UserService for user management.
+
+Routing&Guards
+Define routes with role-based restrictions:
+
+const routes: Routes = [
+
+  {path: '', component: LoginComponent },
+
+  {path: 'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {role: 'User' } },
+
+  {path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard], data: { role: 'User' } },
+
+  {path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard], data: { role: 'Admin' } }
+
+];
+
+·        Implement AuthGuard to check login and role.
+
+·        Use <router-outlet> for routed components.
+
+·        Use routerLink and routerLinkActive for navigation.
+
+·        Split into lazy-loaded modules:
+
+o   UserModule (User Dashboard + Transactions).
+
+o   AdminModule (Admin Dashboard).
+
+Enums
+·        AccountType = { Savings, Current }
+
+·        TransactionType = { Credit, Debit }
+
+Custom Pipes&Directives
+·        Custom Pipe: Filter transactions by type or description.
+
+·        Currency formatting: Apply built-in currency pipe.
+
+·        Conditional styling: Use *ngClass or [ngStyle] for transaction types (e.g., red for Debit, green for Credit).
+
+Data Models
+interface User {
+
+  id: number;
+
+  userName: string;
+
+  password: string;
+
+  role: 'Admin' | 'User';
+
+  isActive: boolean;
+
+  email: string;
+
+  phone: string;
+
+}
+
+ 
+
+interface Account {
+
+  id: number;
+
+  accountNo: string;
+
+  accountType: 'Savings' | 'Current';
+
+  balance: number;
+
+  userId: number;
+
+}
+
+ 
+
+interface Transaction {
+
+  id: number;
+
+  fromAccountNo: string;
+
+  ToAccountNo: string;
+
+  date: Date;
+
+  amount: number;
+
+  type: 'Debit' | 'Credit';
+
+  description: string;
+
+}
+
+Data Handling:
+_use Static Mock Data mentioned in this link for login and managing Crud operations on Users with no need for http request.
+_use below APIs for handling Accounts and Transactions.
+
+BaseURL= https://68a063076e38a02c58188d9c.mockapi.io/bankingsystem
+
+Account
+
+GET → {BaseURL}/Account
+
+GET by id → {BaseURL}/Account/:id
+
+POST → {BaseURL}/Account
+
+PUT → {BaseURL}/Account/:id
+
+DELETE → {BaseURL}/Account/:id
+
+ 
+
+    {
+
+        "accountNo": "SAV0015489632",
+
+        "accountType": "Savings",
+
+        "balance": 1250.5,
+
+        "userId": 1,
+
+        "id": "1"
+
+    }
+
+Transaction
+
+GET →> {BaseURL}/Transaction
+
+GET by id →> {BaseURL}/Transaction/:id
+
+POST →> {BaseURL}/Transaction
+
+PUT →> {BaseURL}/Transaction/:id
+
+DELETE →> {BaseURL}/Transaction/:id
+
+ 
+
+    {
+
+        "fromAccountNo": "SAV0015489632",
+
+        "ToAccountNo": "CUR0028741596",
+
+        "date": "2025-01-05T09:15:22Z",
+
+        "amount": 500,
+
+        "type": "Debit",
+
+        "description": "Funds transfer to business account",
+
+        "id": "1"
+
+    }
+
+ 
+
+UI Expectations
+·        Use {{ }} interpolation for data.
+
+·        Use @for for lists and @if for conditions.
+
+·        Highlight active navigation using routerLinkActive.
+
+·        Show/hide features depending on role (Admin/User).
+
+·        Provide feedback messages (Transfer successful, Invalid login, etc.).
+
+·        Clean, simple layout (Bootstrap, Angular Material UI optional).
+
+Deliverables
+·        Angular app with:
+
+o   Working login and role-based dashboards
+
+o   Lazy-loaded modules
+
+o   Guards with role restrictions
+
+o   Pipes, enums, directives
+
+·        Uses <router-outlet> for rendering views
+
+·        Simple UI with feedback messages
+
+·        README with setup and usage instructions

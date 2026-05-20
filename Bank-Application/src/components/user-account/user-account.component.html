@@ -1,0 +1,59 @@
+<div class="account-page">
+    <section class=" p-3">
+        <div class="container d-flex flex-column  mx-auto  p-4 bg-white  account-overview">
+            <div class="d-flex">
+                <i class="fa-credit-card fa-solid"></i>
+                <h6>Account Overview</h6>
+            </div>
+            <p class="d-block">Your account details and current balance</p>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column">
+                    <p>Account Number</p>
+                    <h6>{{accountNumber}}</h6>
+                </div>
+                <div class="d-flex flex-column">
+                    <p>Account Type</p>
+                    <div class="typeContainer text-center">
+                        <h6>{{accountType}}</h6>
+                    </div>
+    
+                </div>
+                <div class="d-flex flex-column">
+                    <p>Current Balance</p>
+                    <h6 class="balance">{{accountBalance|currency}}</h6>
+                </div>
+            </div>
+        </div>
+        <div>
+    
+        </div>
+    </section>
+    <section class="transactions">
+        <div class="container d-flex flex-column  mx-auto  p-4 bg-white ">
+            <h6>Recent Transactions</h6>
+            <p>Your latest account activity</p>
+       
+       @for(tranaction of t ;track $index){
+        @if(tranaction.fromAccountNo===accountNumber||tranaction.ToAccountNo===accountNumber){
+       
+            <div class="container d-flex transaction mx-auto  p-4 bg-white justify-content-between">
+                <div class="d-flex flex-column">
+                    <h6>{{tranaction.description}}</h6>
+                    <p>{{tranaction.date|date}}</p>
+                </div>
+                <div>
+                    <div [ngClass]="{'positive':tranaction.ToAccountNo===accountNumber,'negative':tranaction.fromAccountNo===accountNumber}">
+                  @if(tranaction.fromAccountNo===accountNumber){--}
+                  @else{+}
+                    {{tranaction.amount|currency}}</div>
+                    <p>{{tranaction.type}}</p>
+                </div>
+                </div>
+        }
+        
+       }
+    </div>
+    </section>
+    <div>
+        </div>
+</div>

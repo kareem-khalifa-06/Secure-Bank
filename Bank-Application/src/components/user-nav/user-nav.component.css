@@ -1,0 +1,32 @@
+img{
+    height:16px;
+    width:16px;
+    display: inline-block;
+}
+.btn{
+    background-color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 8px;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    color: white !important;
+}
+.is-active {
+    background-color: rgb(143, 182, 236) ;
+    border-radius: 8px;
+    color: white ;
+}
+li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

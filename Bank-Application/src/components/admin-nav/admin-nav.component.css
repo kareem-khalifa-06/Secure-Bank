@@ -1,0 +1,213 @@
+/* ─── Tokens ─────────────────────────────────────── */
+:host {
+  --navy:       #0B1D3A;
+  --navy-light: #1E3A5F;
+  --gold:       #C9A84C;
+  --gold-light: #F0C96A;
+  --white:      #FFFFFF;
+  --text-dim:   rgba(255,255,255,0.65);
+  --active-bg:  rgba(201,168,76,0.15);
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+/* ─── Navbar Shell ───────────────────────────────── */
+.navbar {
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(11,29,58,0.35);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 62px;
+  gap: 24px;
+}
+
+/* ─── Brand ──────────────────────────────────────── */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--gold);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--navy);
+}
+
+.nav-brand span {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.3px;
+}
+
+/* ─── Nav Links ──────────────────────────────────── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.nav-link-item i {
+  font-size: 13px;
+}
+
+.nav-link-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+}
+
+.nav-link-item.is-active {
+  background: var(--active-bg);
+  color: var(--gold);
+  font-weight: 600;
+  border: 1px solid rgba(201,168,76,0.25);
+}
+
+/* ─── Right Section ──────────────────────────────── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ─── User Pill ──────────────────────────────────── */
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 5px 12px 5px 6px;
+}
+
+.user-avatar {
+  width: 26px;
+  height: 26px;
+  background: var(--navy-light);
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--gold);
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Logout Button ──────────────────────────────── */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.logout-btn i {
+  font-size: 12px;
+}
+
+.logout-btn:hover {
+  background: rgba(220,38,38,0.15);
+  border-color: rgba(220,38,38,0.5);
+  color: #FCA5A5;
+}
+
+/* ─── Hamburger ──────────────────────────────────── */
+.toggler-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  padding: 6px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 991px) {
+  .toggler-btn { display: flex; margin-left: auto; }
+
+  .navbar-collapse {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 12px 16px 16px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+
+  .nav-link-item { width: 100%; }
+
+  .nav-right {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+}

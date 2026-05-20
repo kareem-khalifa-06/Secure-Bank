@@ -1,0 +1,164 @@
+/* ─── Tokens (same as dashboard) ─────────────────── */
+:host {
+  --navy:       #0B1D3A;
+  --navy-light: #1E3A5F;
+  --gold:       #C9A84C;
+  --surface:    #F5F6FA;
+  --white:      #FFFFFF;
+  --border:     #DDE2EC;
+  --text-main:  #0B1D3A;
+  --text-muted: #6B7A99;
+  --text-hint:  #9AA3BB;
+  --info:       #1D4ED8;
+  --info-bg:    #DBEAFE;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --shadow-sm:  0 1px 4px rgba(11,29,58,0.08);
+  --shadow-md:  0 4px 20px rgba(11,29,58,0.12);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+/* ─── Page Shell ─────────────────────────────────── */
+.page-shell {
+  min-height: 100vh;
+  background: var(--surface);
+  padding: 40px 32px;
+}
+
+/* ─── Welcome Hero ───────────────────────────────── */
+.welcome-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px 40px;
+  margin-bottom: 36px;
+}
+
+.welcome-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(11,29,58,0.25);
+}
+
+.welcome-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.4px;
+  margin: 0 0 10px;
+}
+
+.welcome-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 380px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Cards Grid ─────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── Feature Card ───────────────────────────────── */
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.feature-card-body {
+  flex: 1;
+}
+
+.feature-card-body h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 6px;
+}
+
+.feature-card-body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Card Button ────────────────────────────────── */
+.feature-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: inherit;
+  margin-top: 4px;
+}
+
+.feature-btn:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--gold);
+}
+
+.feature-btn i {
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+.feature-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .page-shell { padding: 20px 16px; }
+  .welcome-hero { padding: 32px 16px 28px; }
+  .welcome-title { font-size: 20px; }
+  .cards-grid { grid-template-columns: 1fr; }
+}

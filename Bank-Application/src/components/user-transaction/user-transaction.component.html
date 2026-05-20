@@ -1,0 +1,82 @@
+<div class="bg-light p-3">
+    <div class="d-flex flex-column">
+        <h3>Transactions History</h3>
+        <p>View and filter your account transactions</p>
+    </div>
+
+   
+    <section class="filters-section p-3">
+        <h5 class="card-title mb-3">
+            <i class="fa fa-filter" aria-hidden="true"></i> Filters
+        </h5>
+        <div class="row">
+        
+            <div class="row col-md-6">
+                <h6>Search Description</h6>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="search by description..."
+                        [(ngModel)]="searchTerm" />
+                </div>
+            </div>
+
+            <!-- Type filter -->
+            <div class="row col-md-6">
+                <h6>Transaction Type</h6>
+                <select class="form-select" [(ngModel)]="filterType">
+                    <option value="All">All</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                </select>
+            </div>
+        </div>
+
+        <p class="row m-1">
+            Showing
+            {{ (t | filterTransactions: filterType : searchTerm: accountNo).length }}
+            of {{ (t | filterTransactions: 'All' : '': accountNo).length }} transactions
+        </p>
+    </section>
+
+    <!-- Transactions List -->
+    <section class="p-3 filters-section">
+        <h6>Transactions</h6>
+        <p>{{(t|filterTransactions:filterType:searchTerm: accountNo).length}} transactions found</p>
+        <div class="container">
+            @for (transaction of (t | filterTransactions:filterType:searchTerm: accountNo); track $index) {
+            @if (transaction.ToAccountNo === accountNo || transaction.fromAccountNo === accountNo) {
+            <div class="container d-flex transaction mx-auto p-4 bg-white justify-content-between mb-2">
+                <!-- Left side -->
+                <div class="d-flex flex-column">
+                    <h6>{{ transaction.description }}</h6>
+                    <div class="d-flex gap-2">
+                        <p>{{ transaction.date | date }}</p>
+                        <div [ngClass]="{
+                      credit: transaction.type === 'credit',
+                      debit: transaction.type === 'debit'
+                    }">
+                            {{ transaction.type }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side -->
+                <div>
+                    <div [ngClass]="{
+                    positive: transaction.ToAccountNo === accountNo,
+                    negative: transaction.fromAccountNo === accountNo
+                  }">
+                        @if (transaction.fromAccountNo === accountNo) { -- } @else { + }
+                        {{ transaction.amount | currency }}
+                        <p>Transaction ID: {{ $index + 1 }}</p>
+                    </div>
+                </div>
+            </div>
+            }
+            }
+        </div>
+    </section>
+</div>
+  

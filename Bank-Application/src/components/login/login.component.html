@@ -1,0 +1,94 @@
+<div class="login-page">
+
+  <!-- Left Panel (decorative) -->
+  <div class="login-left">
+    <div class="left-content">
+      <div class="left-brand">
+        <div class="brand-icon-lg">
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+        <span>SecureBank</span>
+      </div>
+      <h2>Banking you can trust.</h2>
+      <p>Manage accounts, monitor transactions, and control your finances — all in one secure place.</p>
+      <div class="trust-badges">
+        <div class="trust-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>256-bit Encryption</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-lock"></i>
+          <span>Secure Access</span>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>24/7 Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel (form) -->
+  <div class="login-right">
+    <div class="login-box">
+
+      <div class="login-header">
+        <div class="login-icon">
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+        <h3>Welcome back</h3>
+        <p>Sign in to access your account dashboard</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="Username">Username</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" class="form-input" id="Username"
+              placeholder="Enter your username"
+              formControlName="Username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Password">Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" class="form-input" id="Password"
+              placeholder="Enter your password"
+              formControlName="Password" #passwordInput>
+          </div>
+        </div>
+
+        <button type="submit" class="signin-btn">
+          Sign In <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <!-- Demo Credentials -->
+      <div class="demo-box">
+        <div class="demo-header">
+          <i class="fa-solid fa-circle-info"></i>
+          Demo Credentials
+        </div>
+        <div class="cred-row">
+          <div class="cred-dot admin-dot"></div>
+          <div class="cred-info">
+            <span class="cred-role">Admin</span>
+            <span class="cred-value">admin / admin123</span>
+          </div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-dot user-dot"></div>
+          <div class="cred-info">
+            <span class="cred-role">User</span>
+            <span class="cred-value">kareem / Kareem123!</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

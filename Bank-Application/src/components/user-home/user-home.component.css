@@ -1,0 +1,41 @@
+
+
+.icon{
+    border-radius: 50%;
+    height: 100px;
+    width: 100%;
+}
+p{ font-size: 14px;
+    color:grey
+}
+button{
+    border:1px solid black;
+    border-radius: 15px;
+    width: 100%;
+}
+.card{
+    align-content: space-between;
+    height:190px;
+    border:1px solid black;
+    padding: 5px;
+    margin: 10px;
+    width:400px;
+}
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 12px;
+    margin: 0 auto 20px auto; }
+.welcome-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    margin: 24px; }
