@@ -7,7 +7,7 @@
       
         ToAccountNo: string;
       
-        date: Date;
+        date: string;
       
         amount: number;
       

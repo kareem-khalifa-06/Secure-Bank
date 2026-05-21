@@ -11,6 +11,54 @@
     </div>
   </div>
 
+  <!-- Account Switcher -->
+  @if (userAccounts.length > 0) {
+    <div class="card account-switcher-card">
+      <div class="switcher-inner">
+        <div class="switcher-left">
+          <div class="switcher-label">Viewing account</div>
+          <div class="switcher-account-no">{{ accountNo }}</div>
+        </div>
+
+        <div class="switcher-controls">
+          @if (userAccounts.length > 1) {
+            <button class="nav-arrow" [disabled]="selectedIndex === 0"
+              (click)="selectAccount(selectedIndex - 1)">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          }
+
+          <div class="switcher-tabs">
+            @for (account of userAccounts; track account.id; let i = $index) {
+              <button class="switcher-tab" [class.active]="i === selectedIndex"
+                (click)="selectAccount(i)">
+                <span class="tab-label">Account {{ i + 1 }}</span>
+                <span class="tab-no">{{ account.accountNo }}</span>
+              </button>
+            }
+          </div>
+
+          @if (userAccounts.length > 1) {
+            <button class="nav-arrow" [disabled]="selectedIndex === userAccounts.length - 1"
+              (click)="selectAccount(selectedIndex + 1)">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          }
+        </div>
+
+        <!-- Dot indicators -->
+        @if (userAccounts.length > 1) {
+          <div class="nav-dots">
+            @for (account of userAccounts; track account.id; let i = $index) {
+              <span class="dot" [class.dot-active]="i === selectedIndex"
+                (click)="selectAccount(i)"></span>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+
   <!-- Filters Card -->
   <div class="card filters-card">
     <div class="card-section-title">
@@ -41,7 +89,7 @@
       <strong>{{ (t | filterTransactions: filterType : searchTerm : accountNo).length }}</strong>
       of
       <strong>{{ (t | filterTransactions: 'All' : '' : accountNo).length }}</strong>
-      transactions
+      transactions for this account
     </div>
   </div>
 
@@ -56,42 +104,47 @@
     </div>
 
     <div class="transactions-list">
-      @for (transaction of (t | filterTransactions: filterType : searchTerm : accountNo); track $index) {
-        @if (transaction.ToAccountNo === accountNo || transaction.fromAccountNo === accountNo) {
-          <div class="transaction-row">
-            <div class="tx-left">
-              <div class="tx-icon"
-                [class.tx-icon-in]="transaction.ToAccountNo === accountNo"
-                [class.tx-icon-out]="transaction.fromAccountNo === accountNo">
-                @if (transaction.ToAccountNo === accountNo) {
-                  <i class="fa-solid fa-arrow-down"></i>
-                } @else {
-                  <i class="fa-solid fa-arrow-up"></i>
-                }
-              </div>
-              <div>
-                <div class="tx-desc">{{ transaction.description }}</div>
-                <div class="tx-meta">
-                  <span class="tx-date">{{ transaction.date | date }}</span>
-                  <span class="tx-type-badge"
-                    [class.badge-credit]="transaction.type === 'credit'"
-                    [class.badge-debit]="transaction.type === 'debit'">
-                    {{ transaction.type }}
-                  </span>
-                </div>
-              </div>
-            </div>
+      @if ((t | filterTransactions: filterType : searchTerm : accountNo).length === 0) {
+        <div class="empty-state">
+          <i class="fa-solid fa-inbox"></i>
+          <p>No transactions found for this account</p>
+        </div>
+      }
 
-            <div class="tx-right">
-              <div class="tx-amount"
-                [class.positive]="transaction.ToAccountNo === accountNo"
-                [class.negative]="transaction.fromAccountNo === accountNo">
-                {{ transaction.fromAccountNo === accountNo ? '−' : '+' }}{{ transaction.amount | currency }}
+      @for (transaction of (t | filterTransactions: filterType : searchTerm : accountNo); track $index) {
+        <div class="transaction-row">
+          <div class="tx-left">
+            <div class="tx-icon"
+              [class.tx-icon-in]="transaction.ToAccountNo === accountNo"
+              [class.tx-icon-out]="transaction.fromAccountNo === accountNo">
+              @if (transaction.ToAccountNo === accountNo) {
+                <i class="fa-solid fa-arrow-down"></i>
+              } @else {
+                <i class="fa-solid fa-arrow-up"></i>
+              }
+            </div>
+            <div>
+              <div class="tx-desc">{{ transaction.description }}</div>
+              <div class="tx-meta">
+                <span class="tx-date">{{ transaction.date | date }}</span>
+                <span class="tx-type-badge"
+                  [class.badge-credit]="transaction.type === 'credit'"
+                  [class.badge-debit]="transaction.type === 'debit'">
+                  {{ transaction.type }}
+                </span>
               </div>
-              <div class="tx-id">ID #{{ $index + 1 }}</div>
             </div>
           </div>
-        }
+
+          <div class="tx-right">
+            <div class="tx-amount"
+              [class.positive]="transaction.ToAccountNo === accountNo"
+              [class.negative]="transaction.fromAccountNo === accountNo">
+              {{ transaction.fromAccountNo === accountNo ? '−' : '+' }}{{ transaction.amount | currency }}
+            </div>
+            <div class="tx-id">ID #{{ $index + 1 }}</div>
+          </div>
+        </div>
       }
     </div>
   </div>

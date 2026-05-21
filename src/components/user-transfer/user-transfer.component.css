@@ -19,7 +19,7 @@
 }
 
 /* ─── Shell ───────────────────────────────────────── */
-.ft-shell {
+.page-shell {
   background: var(--surface);
   min-height: 100vh;
   padding: 28px 32px;
@@ -30,13 +30,13 @@
 }
 
 /* ─── Header ──────────────────────────────────────── */
-.ft-header {
+.page-header {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.ft-header-icon {
+.header-icon {
   width: 46px;
   height: 46px;
   background: var(--navy);
@@ -44,10 +44,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
   flex-shrink: 0;
 }
 
-.ft-title {
+.page-header h3 {
   font-size: 20px;
   font-weight: 700;
   color: var(--text-main);
@@ -55,21 +57,21 @@
   letter-spacing: -0.3px;
 }
 
-.ft-subtitle {
+.page-header p {
   font-size: 13px;
   color: var(--text-muted);
   margin: 0;
 }
 
 /* ─── Two-Column Grid ─────────────────────────────── */
-.ft-grid {
+.transfer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
 /* ─── Card ────────────────────────────────────────── */
-.ft-card {
+.card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -77,15 +79,18 @@
   overflow: hidden;
 }
 
-.ft-card-head {
+.card-section-title {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
-.ft-card-head-icon {
+.card-section-title i {
   width: 32px;
   height: 32px;
   background: var(--surface);
@@ -94,55 +99,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--navy);
   flex-shrink: 0;
 }
 
-.ft-card-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0;
-}
-
-.ft-card-sub {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin: 2px 0 0;
-}
-
 /* ─── Form ────────────────────────────────────────── */
-.ft-form {
+.transfer-form {
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.ft-field {
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.ft-label {
+.form-group label {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: 0.2px;
 }
 
-.ft-optional {
+.optional {
   font-weight: 400;
   color: var(--text-hint);
 }
 
-.ft-input-wrap {
+.input-wrap {
   position: relative;
 }
 
-.ft-input-icon {
+.input-icon {
   position: absolute;
   left: 12px;
   top: 50%;
@@ -153,8 +145,7 @@
   line-height: 1;
 }
 
-.ft-input,
-.ft-select {
+.form-input {
   width: 100%;
   height: 40px;
   border: 1.5px solid var(--border);
@@ -170,36 +161,29 @@
   -webkit-appearance: none;
 }
 
-.ft-input::placeholder {
-  color: var(--text-hint);
-}
+.form-input::placeholder { color: var(--text-hint); }
 
-.ft-input:focus,
-.ft-select:focus {
+.form-input:focus {
   outline: none;
   border-color: var(--navy);
   box-shadow: 0 0 0 3px rgba(11, 29, 58, 0.08);
 }
 
-.ft-select {
-  cursor: pointer;
-}
-
-/* ─── Divider ─────────────────────────────────────── */
-.ft-divider {
+/* ─── Arrow Divider ───────────────────────────────── */
+.arrow-divider {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.ft-divider-line {
+.arrow-line {
   flex: 1;
   border: none;
   border-top: 1px dashed var(--border);
   margin: 0;
 }
 
-.ft-divider-icon {
+.arrow-circle {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -214,7 +198,7 @@
 }
 
 /* ─── Transfer Button ─────────────────────────────── */
-.ft-btn {
+.transfer-btn {
   width: 100%;
   height: 44px;
   background: var(--navy);
@@ -226,16 +210,26 @@
   font-family: inherit;
   cursor: pointer;
   letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: background 0.15s, transform 0.1s;
   margin-top: 2px;
 }
 
-.ft-btn:hover  { background: var(--navy-light); }
-.ft-btn:active { transform: scale(0.98); }
+.transfer-btn:hover  { background: var(--navy-light); }
+.transfer-btn:active { transform: scale(0.98); }
 
-/* ─── Account Dark Card ───────────────────────────── */
-.ft-account-card {
-  margin: 20px;
+/* ─── Account Dark Cards ──────────────────────────── */
+.accounts-list {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-card {
   background: var(--navy);
   border-radius: var(--radius-md);
   padding: 18px 20px;
@@ -245,9 +239,12 @@
   gap: 12px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
 }
 
-.ft-account-card::before {
+.account-card::before {
   content: '';
   position: absolute;
   top: -24px;
@@ -259,50 +256,67 @@
   pointer-events: none;
 }
 
-.ft-account-type {
+.account-card.account-selected {
+  border-color: var(--gold);
+}
+
+.account-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-avatar {
+  width: 36px;
+  height: 36px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
   font-size: 14px;
+  flex-shrink: 0;
+}
+
+.account-no {
+  font-size: 13px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white);
+  font-family: 'Courier New', monospace;
   margin-bottom: 4px;
 }
 
-.ft-account-id {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.ft-account-badge {
+.account-type-badge {
   display: inline-block;
-  margin-top: 8px;
   background: rgba(201, 168, 76, 0.15);
   color: var(--gold);
   border: 1px solid rgba(201, 168, 76, 0.3);
   border-radius: 20px;
-  padding: 3px 10px;
-  font-size: 11px;
+  padding: 2px 10px;
+  font-size: 10px;
   font-weight: 700;
 }
 
-.ft-account-right {
-  text-align: right;
-}
+.account-card-right { text-align: right; }
 
-.ft-balance-label {
+.balance-label {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 4px;
 }
 
-.ft-balance {
-  font-size: 22px;
+.balance-value {
+  font-size: 20px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white);
   letter-spacing: -0.5px;
   white-space: nowrap;
 }
 
 /* ─── Responsive ──────────────────────────────────── */
 @media (max-width: 640px) {
-  .ft-shell { padding: 16px; }
-  .ft-grid  { grid-template-columns: 1fr; }
+  .page-shell    { padding: 16px; }
+  .transfer-grid { grid-template-columns: 1fr; }
 }

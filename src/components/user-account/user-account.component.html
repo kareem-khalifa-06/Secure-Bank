@@ -6,31 +6,73 @@
       <div class="card-header-row">
         <div class="card-title-group">
           <div class="card-icon">
-            <i class="fa-solid fa-credit-card"></i>
+            <i class="fa-solid fa-wallet"></i>
           </div>
           <div>
             <h5>Account Overview</h5>
             <p>Your account details and current balance</p>
           </div>
         </div>
+
+        <!-- Account Switcher tabs -->
+        @if (userAccounts.length > 1) {
+          <div class="account-switcher">
+            @for (account of userAccounts; track account.id; let i = $index) {
+              <button class="switcher-btn" [class.active]="i === selectedIndex"
+                (click)="selectAccount(i)">
+                Account {{ i + 1 }}
+              </button>
+            }
+          </div>
+        }
       </div>
 
-      <div class="overview-stats">
-        <div class="stat-item">
-          <span class="stat-label">Account Number</span>
-          <span class="stat-value mono">{{ accountNumber }}</span>
+      <!-- Selected Account Stats -->
+      @if (selectedAccount) {
+        <div class="overview-stats">
+          <div class="stat-item">
+            <span class="stat-label">Account Number</span>
+            <span class="stat-value mono">{{ selectedAccount.accountNo }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">Account Type</span>
+            <span class="type-badge">{{ selectedAccount.accountType }}</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">Current Balance</span>
+            <span class="stat-value balance-value">{{ selectedAccount.balance | currency }}</span>
+          </div>
+          @if (userAccounts.length > 1) {
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-label">Account</span>
+              <span class="stat-value">{{ selectedIndex + 1 }} / {{ userAccounts.length }}</span>
+            </div>
+          }
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-label">Account Type</span>
-          <span class="type-badge">{{ accountType }}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-label">Current Balance</span>
-          <span class="stat-value balance-value">{{ accountBalance | currency }}</span>
-        </div>
-      </div>
+
+        <!-- Prev / Next for multiple accounts -->
+        @if (userAccounts.length > 1) {
+          <div class="account-nav">
+            <button class="nav-arrow" [disabled]="selectedIndex === 0"
+              (click)="selectAccount(selectedIndex - 1)">
+              <i class="fa-solid fa-chevron-left"></i> Previous
+            </button>
+            <div class="nav-dots">
+              @for (account of userAccounts; track account.id; let i = $index) {
+                <span class="dot" [class.dot-active]="i === selectedIndex"
+                  (click)="selectAccount(i)"></span>
+              }
+            </div>
+            <button class="nav-arrow" [disabled]="selectedIndex === userAccounts.length - 1"
+              (click)="selectAccount(selectedIndex + 1)">
+              Next <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        }
+      }
     </div>
   </section>
 
@@ -44,39 +86,47 @@
           </div>
           <div>
             <h5>Recent Transactions</h5>
-            <p>Your latest account activity</p>
+            <p>Latest activity for account {{ selectedAccount?.accountNo }}</p>
           </div>
         </div>
+        @if (accountTransactions.length > 0) {
+          <span class="tx-count-badge">{{ accountTransactions.length }}</span>
+        }
       </div>
 
       <div class="transactions-list">
-        @for(transaction of t; track $index) {
-          @if(transaction.fromAccountNo === accountNumber || transaction.ToAccountNo === accountNumber) {
-            <div class="transaction-row">
-              <div class="tx-left">
-                <div class="tx-icon" [class.tx-icon-in]="transaction.ToAccountNo === accountNumber"
-                                     [class.tx-icon-out]="transaction.fromAccountNo === accountNumber">
-                  @if(transaction.ToAccountNo === accountNumber) {
-                    <i class="fa-solid fa-arrow-down"></i>
-                  } @else {
-                    <i class="fa-solid fa-arrow-up"></i>
-                  }
-                </div>
-                <div>
-                  <div class="tx-desc">{{ transaction.description }}</div>
-                  <div class="tx-date">{{ transaction.date | date }}</div>
-                </div>
+        @if (accountTransactions.length === 0) {
+          <div class="empty-state">
+            <i class="fa-solid fa-inbox"></i>
+            <p>No transactions found for this account</p>
+          </div>
+        }
+        @for (transaction of accountTransactions; track $index) {
+          <div class="transaction-row">
+            <div class="tx-left">
+              <div class="tx-icon"
+                [class.tx-icon-in]="transaction.ToAccountNo === selectedAccount?.accountNo"
+                [class.tx-icon-out]="transaction.fromAccountNo === selectedAccount?.accountNo">
+                @if (transaction.ToAccountNo === selectedAccount?.accountNo) {
+                  <i class="fa-solid fa-arrow-down"></i>
+                } @else {
+                  <i class="fa-solid fa-arrow-up"></i>
+                }
               </div>
-              <div class="tx-right">
-                <div class="tx-amount"
-                  [class.positive]="transaction.ToAccountNo === accountNumber"
-                  [class.negative]="transaction.fromAccountNo === accountNumber">
-                  {{ transaction.fromAccountNo === accountNumber ? '−' : '+' }}{{ transaction.amount | currency }}
-                </div>
-                <div class="tx-type">{{ transaction.type }}</div>
+              <div>
+                <div class="tx-desc">{{ transaction.description }}</div>
+                <div class="tx-date">{{ transaction.date | date }}</div>
               </div>
             </div>
-          }
+            <div class="tx-right">
+              <div class="tx-amount"
+                [class.positive]="transaction.ToAccountNo === selectedAccount?.accountNo"
+                [class.negative]="transaction.fromAccountNo === selectedAccount?.accountNo">
+                {{ transaction.fromAccountNo === selectedAccount?.accountNo ? '−' : '+' }}{{ transaction.amount | currency }}
+              </div>
+              <div class="tx-type">{{ transaction.type }}</div>
+            </div>
+          </div>
         }
       </div>
     </div>

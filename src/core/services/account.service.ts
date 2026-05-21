@@ -15,9 +15,9 @@ export class AccountService {
     return this._HttpClient.get<Account[]>(this.base_url + 'Account');
   }
 
-  getUserById(id: string): Observable<Account|undefined> {
+  getUserAccounts(id: number): Observable<Account[]> {
     return this.getAllAccounts().pipe(
-      map(accounts => accounts.find(u => u.id ===id))
+      map(accounts => accounts.filter(u => u.userId ===id))
     );
   }
   updateUser(user:Account,id:number):Observable<Account>{

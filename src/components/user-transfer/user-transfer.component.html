@@ -1,125 +1,127 @@
-<div class="ft-shell">
+<div class="page-shell">
 
-  <!-- Header -->
-  <div class="ft-header">
-    <div class="ft-header-icon">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="6" width="20" height="12" rx="2" stroke="#C9A84C" stroke-width="2" fill="none"/>
-        <path d="M6 10h12M6 14h8" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-icon">
+      <i class="fa-solid fa-right-left"></i>
     </div>
     <div>
-      <h3 class="ft-title">Fund Transfer</h3>
-      <p class="ft-subtitle">Transfer money between accounts securely</p>
+      <h3>Fund Transfer</h3>
+      <p>Transfer money between accounts securely</p>
     </div>
   </div>
 
-  <!-- Two columns -->
-  <div class="ft-grid">
+  <div class="transfer-grid">
 
     <!-- LEFT: Form -->
-    <div class="ft-card">
-      <div class="ft-card-head">
-        <span class="ft-card-head-icon">⇄</span>
-        <div>
-          <h6 class="ft-card-title">Transfer Details</h6>
-          <p class="ft-card-sub">Enter the transfer information below</p>
-        </div>
+    <div class="card">
+      <div class="card-section-title">
+        <i class="fa-solid fa-right-left"></i>
+        Transfer Details
       </div>
 
-      <form [formGroup]="transferForm" class="ft-form">
+      <form [formGroup]="transferForm" class="transfer-form">
 
-        <div class="ft-field">
-          <label class="ft-label" for="fromAccountNo">From Account</label>
-          <div class="ft-input-wrap">
-            <span class="ft-input-icon">🏦</span>
-            <select id="fromAccountNo" name="fromAccountNo" class="ft-select" formControlName="fromAccountNo">
-              <option [value]="account.accountNo">{{ account.accountNo }}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="ft-divider">
-          <hr class="ft-divider-line"/>
-          <div class="ft-divider-icon">⇅</div>
-          <hr class="ft-divider-line"/>
-        </div>
-
-        <div class="ft-field">
-          <label class="ft-label" for="toAccountNo">To Account</label>
-          <div class="ft-input-wrap">
-            <span class="ft-input-icon">👤</span>
-            <select id="toAccountNo" name="toAccountNo" class="ft-select" formControlName="ToAccountNo">
-              @for(account of accounts; track $index) {
-                <option [value]="account?.accountNo">{{ account?.accountNo  }}</option>
+        <!-- From Account -->
+        <div class="form-group">
+          <label>From Account</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-building-columns input-icon"></i>
+            <select class="form-input" formControlName="fromAccountNo">
+              <option value="" disabled>Select your account</option>
+              @for (a of senderAccounts; track a.id) {
+                <option [value]="a.accountNo">
+                  {{ a.accountNo }} — {{ a.accountType }} ({{ a.balance | currency }})
+                </option>
               }
             </select>
           </div>
         </div>
 
-        <div class="ft-field">
-          <label class="ft-label" for="amount">Amount</label>
-          <div class="ft-input-wrap">
-            <span class="ft-input-icon">$</span>
-            <input
-              type="number"
-              id="amount"
-              class="ft-input"
-              placeholder="0.00"
-              formControlName="amount"
-              min="0"
-              step="0.01"
-            />
+        <!-- Arrow divider -->
+        <div class="arrow-divider">
+          <div class="arrow-line"></div>
+          <div class="arrow-circle">
+            <i class="fa-solid fa-arrow-down"></i>
+          </div>
+          <div class="arrow-line"></div>
+        </div>
+
+        <!-- To Account -->
+        <div class="form-group">
+          <label>To Account</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-user input-icon"></i>
+            <select class="form-input" formControlName="ToAccountNo">
+              <option value="" disabled>Select recipient account</option>
+              @for (account of reciverAccounts; track account.id) {
+                <option [value]="account.accountNo">
+                  {{ account.accountNo }}
+                </option>
+              }
+            </select>
           </div>
         </div>
 
-        <div class="ft-field">
-          <label class="ft-label" for="description">
-            Description <span class="ft-optional">(optional)</span>
-          </label>
-          <div class="ft-input-wrap">
-            <span class="ft-input-icon">✎</span>
-            <input
-              type="text"
-              id="description"
-              class="ft-input"
-              placeholder="Transfer description"
-              formControlName="description"
-            />
+        <!-- Amount -->
+        <div class="form-group">
+          <label>Amount</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-dollar-sign input-icon"></i>
+            <input type="number" class="form-input" placeholder="0.00"
+              formControlName="amount" min="0" step="0.01" />
           </div>
         </div>
 
-        <button type="button" class="ft-btn" (click)="transferFunds()">
-          Transfer Funds →
+        <!-- Description -->
+        <div class="form-group">
+          <label>Description <span class="optional">(optional)</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-pen input-icon"></i>
+            <input type="text" class="form-input" placeholder="What's this transfer for?"
+              formControlName="description" />
+          </div>
+        </div>
+
+        <!-- Submit — passes the matching sender account -->
+        <button type="button" class="transfer-btn"
+          (click)="transferFunds(getSelectedSender())">
+          <i class="fa-solid fa-paper-plane"></i>
+          Transfer Funds
         </button>
 
       </form>
     </div>
 
     <!-- RIGHT: Account Info -->
-    <div class="ft-card">
-      <div class="ft-card-head">
-        <span class="ft-card-head-icon">◉</span>
-        <div>
-          <h6 class="ft-card-title">Your Accounts</h6>
-          <p class="ft-card-sub">Current balances of your accounts</p>
-        </div>
+    <div class="card">
+      <div class="card-section-title">
+        <i class="fa-solid fa-wallet"></i>
+        Your Accounts
       </div>
 
-      <div class="ft-account-card">
-        <div class="ft-account-meta">
-          <div class="ft-account-type">{{ account.accountType }}</div>
-          <div class="ft-account-id">Account ID: {{ account.id }}</div>
-          <div class="ft-account-badge">● Active</div>
-        </div>
-        <div class="ft-account-right">
-          <div class="ft-balance-label">Balance</div>
-          <div class="ft-balance">{{ account.balance | currency }}</div>
-        </div>
+      <div class="accounts-list">
+        @for (a of senderAccounts; track a.id) {
+          <div class="account-card"
+            [class.account-selected]="a.accountNo === transferForm.get('fromAccountNo')?.value"
+            (click)="transferForm.get('fromAccountNo')?.setValue(a.accountNo)">
+            <div class="account-card-left">
+              <div class="account-avatar">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <div>
+                <div class="account-no">{{ a.accountNo }}</div>
+                <div class="account-type-badge">{{ a.accountType }}</div>
+              </div>
+            </div>
+            <div class="account-card-right">
+              <div class="balance-label">Balance</div>
+              <div class="balance-value">{{ a.balance | currency }}</div>
+            </div>
+          </div>
+        }
       </div>
-
     </div>
 
   </div>
-
 </div>
