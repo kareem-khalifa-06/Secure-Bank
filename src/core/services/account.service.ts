@@ -7,7 +7,7 @@ import { Observable, map } from "rxjs";
   providedIn: "root",
 })
 export class AccountService {
-  private base_url = "secure-bank-production-f90d.up.railway.app/";
+  private base_url = "https://secure-bank-production-f90d.up.railway.app/";
 
   constructor(private _HttpClient: HttpClient) {}
 
