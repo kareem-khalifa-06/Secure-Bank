@@ -50,12 +50,12 @@ export class AdminDashboardComponent {
   }
 
   editUser() {
-    console.log("Dijoo");
+    console.log("Kinoo");
     if (this.editUserForm.valid && this.editUserData) {
       const formValue = this.editUserForm.value;
       const id = this.editUserData.id;
       const updatedUser: User = { ...this.editUserData, ...formValue };
-    
+
       this._UserService.updateUser(updatedUser, id).subscribe({
         next: () => {
           this.showEditFrom = false;
@@ -80,7 +80,6 @@ export class AdminDashboardComponent {
   }
 
   toggleUserStatus(i: number): void {
-   
     const user = this.usersData[Number(i)];
     const updatedUser: User = {
       ...user,
@@ -131,7 +130,7 @@ export class AdminDashboardComponent {
     console.log(this.addUserForm.valid);
     if (this.addUserForm.valid) {
       const formValue = this.addUserForm.value;
-      const id = String(this.usersData.length+1);
+      const id = String(this.usersData.length + 1);
       const newUser: User = {
         id: id,
         username: formValue.username,
@@ -141,7 +140,7 @@ export class AdminDashboardComponent {
         email: formValue.email,
         phone: formValue.phone,
       };
-console.log(id)
+      console.log(id);
       this._UserService.addUser(newUser).subscribe({
         next: () => {
           this.showAddFrom = false;

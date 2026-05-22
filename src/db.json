@@ -440,15 +440,6 @@
       "isActive": true,
       "email": "winston.f@example.com",
       "phone": "+15550000049"
-    },
-    {
-      "id": 50,
-      "username": "khadija",
-      "password": "Khadija15#",
-      "role": "User",
-      "isActive": true,
-      "email": "khadijaelbakry19@gmail.com",
-      "phone": "+201111445265"
     }
   ],
   "Account": [
@@ -1007,7 +998,7 @@
     {
       "id": "70",
       "userId": "50",
-      "username": "khadija",
+      "username": "kareem",
       "accountNo": "ACC50000001",
       "balance": 45600,
       "accountType": "checking"
@@ -1015,7 +1006,7 @@
     {
       "id": "71",
       "userId": "50",
-      "username": "khadija",
+      "username": "kareem",
       "accountNo": "ACC50000002",
       "balance": 110000,
       "accountType": "savings"
