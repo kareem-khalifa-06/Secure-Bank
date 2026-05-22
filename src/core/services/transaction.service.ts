@@ -7,7 +7,7 @@ import { Transaction } from "../../models/transactions";
   providedIn: "root",
 })
 export class TransactionService {
-  base_url = "http://localhost:3000/";
+  base_url = "secure-bank-production-f90d.up.railway.app/";
   constructor(private _HttpClient: HttpClient) {}
   getAllTransactions(): Observable<Transaction[]> {
     return this._HttpClient.get<Transaction[]>(this.base_url + "Transaction");

@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Fund Transfer App Icon</title>
+
+  <!-- Background -->
+  <rect width="120" height="120" rx="26" fill="#0B1D3A"/>
+
+  <!-- Subtle gold corner ring -->
+  <circle cx="108" cy="12" r="28" fill="none" stroke="#C9A84C" stroke-width="6" opacity="0.12"/>
+
+  <!-- Card body -->
+  <rect x="18" y="38" width="84" height="52" rx="7" fill="#1E3A5F"/>
+
+  <!-- Card chip -->
+  <rect x="26" y="48" width="18" height="14" rx="3" fill="#C9A84C" opacity="0.9"/>
+
+  <!-- Card number lines -->
+  <line x1="26" y1="72" x2="62" y2="72" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="26" y1="79" x2="50" y2="79" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Transfer arrow right (gold) -->
+  <path d="M76 56 L94 56" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M89 51 L94 56 L89 61" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Transfer arrow left (white, subtle) -->
+  <path d="M94 70 L76 70" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+  <path d="M81 65 L76 70 L81 75" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4"/>
+</svg>

@@ -2,12 +2,10 @@
   "name": "bank-application",
   "version": "0.0.0",
   "scripts": {
+    "start": "node server.js",
+    "server": "npx json-server --watch src/db.json --port 3000 --body-limit 10mb --delay 100",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "server": "npx json-server --watch db.json --port 3000 "
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {
