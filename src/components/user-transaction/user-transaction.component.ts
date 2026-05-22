@@ -10,7 +10,7 @@ import { Account } from '../../models/account';
 @Component({
   selector: 'app-user-transaction',
   standalone: true,
-  imports: [DatePipe, CurrencyPipe, NgClass, CommonModule, FilterTransactionsPipe, FormsModule],
+  imports: [DatePipe, CurrencyPipe, CommonModule, FilterTransactionsPipe, FormsModule],
   templateUrl: './user-transaction.component.html',
   styleUrl: './user-transaction.component.css'
 })

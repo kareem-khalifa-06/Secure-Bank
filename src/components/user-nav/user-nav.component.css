@@ -1,25 +1,25 @@
 /* ─── Tokens ─────────────────────────────────────── */
 :host {
-  --navy:       #0B1D3A;
-  --navy-light: #1E3A5F;
-  --gold:       #C9A84C;
-  --white:      #FFFFFF;
-  --text-dim:   rgba(255,255,255,0.65);
-  --active-bg:  rgba(201,168,76,0.15);
-  --radius-sm:  6px;
-  --radius-md:  10px;
-  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  --navy: #0b1d3a;
+  --navy-light: #1e3a5f;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.65);
+  --active-bg: rgba(201, 168, 76, 0.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  font-family: "DM Sans", "Segoe UI", sans-serif;
 }
 
 /* ─── Navbar Shell ───────────────────────────────── */
 .navbar {
   background: var(--navy);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 16px rgba(11,29,58,0.35);
+  box-shadow: 0 2px 16px rgba(11, 29, 58, 0.35);
 }
 
 .nav-container {
@@ -78,14 +78,18 @@
   font-weight: 500;
   color: var(--text-dim);
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   white-space: nowrap;
 }
 
-.nav-link-item i { font-size: 13px; }
+.nav-link-item i {
+  font-size: 13px;
+}
 
 .nav-link-item:hover {
-  background: rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--white);
 }
 
@@ -93,7 +97,7 @@
   background: var(--active-bg);
   color: var(--gold);
   font-weight: 600;
-  border: 1px solid rgba(201,168,76,0.25);
+  border: 1px solid rgba(201, 168, 76, 0.25);
 }
 
 /* ─── Right Section ──────────────────────────────── */
@@ -110,8 +114,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 5px 12px 5px 6px;
 }
@@ -121,7 +125,7 @@
   height: 26px;
   background: var(--navy-light);
   border-radius: 50%;
-  border: 1px solid rgba(201,168,76,0.4);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,7 +150,7 @@
   gap: 7px;
   padding: 7px 14px;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
@@ -156,19 +160,21 @@
   font-family: inherit;
 }
 
-.logout-btn i { font-size: 12px; }
+.logout-btn i {
+  font-size: 12px;
+}
 
 .logout-btn:hover {
-  background: rgba(220,38,38,0.15);
-  border-color: rgba(220,38,38,0.5);
-  color: #FCA5A5;
+  background: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.5);
+  color: #fca5a5;
 }
 
 /* ─── Hamburger ──────────────────────────────────── */
 .toggler-btn {
   display: none;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-sm);
   color: var(--white);
   padding: 6px 10px;
@@ -180,11 +186,13 @@
 
 /* ─── Responsive ─────────────────────────────────── */
 @media (max-width: 991px) {
-  .toggler-btn { display: flex; }
+  .toggler-btn {
+    display: flex;
+  }
 
   .navbar-collapse {
     background: var(--navy);
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 12px 16px 16px;
   }
 
@@ -196,7 +204,9 @@
     margin-bottom: 12px;
   }
 
-  .nav-link-item { width: 100%; }
+  .nav-link-item {
+    width: 100%;
+  }
 
   .nav-right {
     flex-direction: row;
@@ -204,6 +214,32 @@
     width: 100%;
     margin-left: 0;
     padding-top: 12px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
+}
+
+/* ─── Back to Admin Button ───────────────────────── */
+.back-admin-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.back-admin-btn:hover {
+  background: rgba(201, 168, 76, 0.22);
+  border-color: var(--gold);
+}
+
+.back-admin-btn i {
+  font-size: 12px;
 }

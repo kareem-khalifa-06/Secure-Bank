@@ -37,6 +37,44 @@ export class AuthService {
     );
   }
 
+  // ─── Admin → User View ──────────────────────────
+  /** Switch admin to user portal view, preserving original admin session */
+  switchToUserView(): void {
+    const current = localStorage.getItem('currentUser');
+    if (!current) return;
+
+    const parsed = JSON.parse(current);
+    if (parsed.role !== 'Admin') return;
+
+    // Save original admin session so we can restore it
+    localStorage.setItem('adminSession', current);
+
+    // Override role to User so guard and routing treat them as a user
+    localStorage.setItem('currentUser', JSON.stringify({
+      ...parsed,
+      role: 'User',
+    }));
+
+    this._router.navigate(['/user/home']);
+  }
+
+  /** Switch back from user view to admin */
+  switchBackToAdmin(): void {
+    const adminSession = localStorage.getItem('adminSession');
+    if (!adminSession) return;
+
+    localStorage.setItem('currentUser', adminSession);
+    localStorage.removeItem('adminSession');
+
+    this._router.navigate(['/admin/home']);
+  }
+
+  /** True when an admin is currently browsing as a user */
+  isAdminViewingAsUser(): boolean {
+    return !!localStorage.getItem('adminSession');
+  }
+
+  // ─── Helpers ────────────────────────────────────
   getUserName(): string | null {
     const data = localStorage.getItem('currentUser');
     return data ? JSON.parse(data).username : null;
@@ -53,6 +91,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('adminSession'); // clean up if admin was in user view
     this._router.navigate(['/']);
   }
 }

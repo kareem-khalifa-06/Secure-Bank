@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid nav-container">
-
     <!-- Brand -->
     <a class="nav-brand" routerLink="/user">
       <div class="brand-icon">
@@ -10,12 +9,15 @@
     </a>
 
     <!-- Hamburger -->
-    <button class="toggler-btn" type="button"
+    <button
+      class="toggler-btn"
+      type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation"
+    >
       <i class="fa-solid fa-bars"></i>
     </button>
 
@@ -23,22 +25,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-links mx-auto">
         <li class="nav-item">
-          <a class="nav-link-item" routerLink="home" routerLinkActive="is-active">
+          <a
+            class="nav-link-item"
+            routerLink="home"
+            routerLinkActive="is-active"
+          >
             <i class="fa fa-home"></i> Home
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link-item" routerLink="account" routerLinkActive="is-active">
+          <a
+            class="nav-link-item"
+            routerLink="account"
+            routerLinkActive="is-active"
+          >
             <i class="fa-solid fa-wallet"></i> My Account
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link-item" routerLink="transactions" routerLinkActive="is-active">
+          <a
+            class="nav-link-item"
+            routerLink="transactions"
+            routerLinkActive="is-active"
+          >
             <i class="fa-solid fa-clock-rotate-left"></i> Transactions
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link-item" routerLink="transfer" routerLinkActive="is-active">
+          <a
+            class="nav-link-item"
+            routerLink="transfer"
+            routerLinkActive="is-active"
+          >
             <i class="fa fa-exchange"></i> Transfer
           </a>
         </li>
@@ -52,12 +70,25 @@
           </div>
           <span #user class="user-name"></span>
         </div>
-        <button class="logout-btn" type="button" (click)="this._AuthService.logout()">
+        @if (_AuthService.isAdminViewingAsUser()) {
+          <button
+            class="back-admin-btn"
+            type="button"
+            (click)="_AuthService.switchBackToAdmin()"
+          >
+            <i class="fa-solid fa-shield-halved"></i>
+            Back to Admin
+          </button>
+        }
+        <button
+          class="logout-btn"
+          type="button"
+          (click)="this._AuthService.logout()"
+        >
           <i class="fa-solid fa-right-from-bracket"></i>
           Logout
         </button>
       </div>
     </div>
-
   </div>
 </nav>

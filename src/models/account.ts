@@ -6,12 +6,12 @@
       
       export interface Account {
         id: string;
-      
+        username:string;
         accountNo: string;
       
         accountType: AccountType;
       
         balance: number;
       
-        userId: number;
+        userId: string;
       }

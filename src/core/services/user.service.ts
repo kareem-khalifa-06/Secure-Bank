@@ -17,15 +17,13 @@ export class UserService {
       return this._HttpClient.get<User[]>(this.base_url + 'User');
     }
   
-    getUserById(id: number): Observable<User|undefined> {
-      return this.getAllUsers().pipe(
-        map(Users => Users.find(u => u.id ===id))
-      );
+    getUserById(id: string): Observable<User> {
+      return this._HttpClient.get<User>(this.base_url+`User/${id}`);
     }
-    updateUser(user:User,id:number):Observable<User>{
+    updateUser(user:User,id:string):Observable<User>{
       return this._HttpClient.put<User>(this.base_url+`User/${id}`,user)
     }
-    deleteUser(id:number):Observable<User>{
+    deleteUser(id:string):Observable<User>{
       return this._HttpClient.delete<User>(this.base_url+`User/${id}`)
     }
     addUser(user: User): Observable<User> {

@@ -55,8 +55,8 @@
             <select class="form-input" formControlName="ToAccountNo">
               <option value="" disabled>Select recipient account</option>
               @for (account of reciverAccounts; track account.id) {
-                <option [value]="account.accountNo">
-                  {{ account.accountNo }}
+                <option [value]="account.accountNo" [disabled]="getSelectedSender()?.accountNo===account.accountNo">
+                  {{ account.accountNo  }} -- {{account.username}}
                 </option>
               }
             </select>
