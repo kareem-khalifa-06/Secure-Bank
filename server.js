@@ -4,7 +4,6 @@ const router = jsonServer.router('src/db.json');
 const middlewares = jsonServer.defaults();
 const PORT = process.env.PORT || 3000;
 
-// ✅ CORS — must be before everything else
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
