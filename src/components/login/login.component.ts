@@ -39,7 +39,7 @@ export class LoginComponent {
         } else if (role === 'User') {
           this._router.navigate(['/user/home']);
         }
-        this._ToastrService.success('Logged in successfully');
+        this._ToastrService.success('Logged In successfully');
       },
       error: () => {
         this._ToastrService.error('Wrong credentials');
