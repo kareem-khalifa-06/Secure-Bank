@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
   constructor(
     private _fb: FormBuilder,
     private _router: Router,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _ToastrService:ToastrService
   ) {}
 
   submit(): void {
@@ -37,9 +39,10 @@ export class LoginComponent {
         } else if (role === 'User') {
           this._router.navigate(['/user/home']);
         }
+        this._ToastrService.success('Logged in successfully');
       },
       error: () => {
-        alert('Wrong credentials');
+        this._ToastrService.error('Wrong credentials');
         this.loginForm.reset();
       }
     });

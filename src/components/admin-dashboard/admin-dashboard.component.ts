@@ -8,6 +8,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { AccountService } from "../../core/services/account.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-admin-dashboard",
@@ -27,6 +28,7 @@ export class AdminDashboardComponent {
     public _UserService: UserService,
     private formBuilder: FormBuilder,
     private _AccountService: AccountService,
+    private _ToastrService:ToastrService
   ) {
     this.initializeForms();
   }
@@ -150,7 +152,7 @@ export class AdminDashboardComponent {
         error: (err) => console.error("Failed to add user:", err),
       });
     } else {
-      alert("invalid Form");
+      this._ToastrService.error("invalid Form");
     }
   }
 }

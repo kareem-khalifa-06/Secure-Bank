@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { ToastrService } from 'ngx-toastr';
+import { Component, inject, OnInit } from "@angular/core";
 import { Account } from "../../models/account";
 import { AccountService } from "../../core/services/account.service";
 import { CurrencyPipe, DatePipe } from "@angular/common";
@@ -22,7 +23,7 @@ import { TransactionService } from "../../core/services/transaction.service";
 export class UserTransferComponent implements OnInit {
   userId!: string;
   nextId: number = 1;
-
+ _ToastrService =inject(ToastrService);
   senderAccounts: Account[] = [];
   reciverAccounts: Account[] = [];
 
@@ -85,11 +86,11 @@ export class UserTransferComponent implements OnInit {
 
   transferFunds(selectedAccount: Account | undefined): void {
     if (!selectedAccount) {
-      alert("Please select a sender account.");
+      ("Please select a sender account.");
       return;
     }
     if (this.transferForm.invalid) {
-      alert("Please fill in all required fields.");
+      ("Please fill in all required fields.");
       return;
     }
 
@@ -99,7 +100,7 @@ export class UserTransferComponent implements OnInit {
     const transferAmount = Number(amount);
 
     if (transferAmount > selectedAccount.balance) {
-      alert("Insufficient balance.");
+      this._ToastrService.info("Insufficient balance.");
       return;
     }
 
@@ -145,7 +146,7 @@ export class UserTransferComponent implements OnInit {
                         next: () => {
                           // Step 3: everything done — refresh UI
                           this.loadSenderAccounts();
-                          alert("Transfer successful!");
+                          this._ToastrService.success("Transfer successful!");
                           const previousSelection = fromAccountNo;
                           this.transferForm.reset();
                           this.transferForm
@@ -157,7 +158,7 @@ export class UserTransferComponent implements OnInit {
                       });
                   } else {
                     console.error("Receiver account not found:", ToAccountNo);
-                    alert("Transfer failed: recipient account not found.");
+                    this._ToastrService.error("Transfer failed: recipient account not found.");
                   }
                 },
                 error: (err) => console.error("Failed to fetch accounts:", err),
