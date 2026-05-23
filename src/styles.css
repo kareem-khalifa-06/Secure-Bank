@@ -1,3 +1,4 @@
+@import 'ngx-toastr/toastr';
 /* ─── Toastr Custom Theme ────────────────────────── */
 .toast-container .ngx-toastr {
   background: var(--navy, #0B1D3A) !important;
@@ -124,4 +125,4 @@
 /* ─── Hover ──────────────────────────────────────── */
 .ngx-toastr:hover {
   box-shadow: 0 12px 40px rgba(11,29,58,0.35) !important;
-}
+} 
