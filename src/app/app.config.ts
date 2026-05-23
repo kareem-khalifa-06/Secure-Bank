@@ -1,12 +1,20 @@
-import { ApplicationConfig } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-
+import { provideToastr } from 'ngx-toastr';
 import { routes } from './app.routes';
-import { AuthService } from '../core/services/auth.service';
-import { authGuard } from '../core/guards/auth.guard';
 import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig } from '@angular/core';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
-    provideHttpClient()]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimations(),
+    provideToastr({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar: true,
+    }),
+  ]
 };
