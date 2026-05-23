@@ -1,128 +1,133 @@
 @import 'ngx-toastr/toastr';
-/* ─── Toastr Custom Theme ────────────────────────── */
-.toast-container .ngx-toastr {
-  background: var(--navy, #0B1D3A) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 8px 32px rgba(11,29,58,0.25) !important;
-  padding: 14px 18px 14px 50px !important;
-  font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: #ffffff !important;
-  min-width: 280px !important;
-  border-left: 4px solid transparent !important;
+
+/* ─── Toastr Container ───────────────────────────── */
+.toast-container.toast-top-right {
+  top: 16px !important;
+  right: 16px !important;
 }
 
-/* ─── Success ────────────────────────────────────── */
-.toast-success {
-  border-left-color: #16A34A !important;
+/* ─── Base Toast ─────────────────────────────────── */
+.toast-container .ngx-toastr {
+  position: relative !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18) !important;
+  padding: 14px 40px 14px 52px !important;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  min-width: 300px !important;
+  max-width: 360px !important;
+  border-left: 4px solid transparent !important;
   background-image: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+/* ─── Icon Base ──────────────────────────────────── */
+.toast-container .ngx-toastr::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+}
+
+/* ─── Success — Green ────────────────────────────── */
+.toast-success {
+  background-color: #F0FDF4 !important;
+  border-left-color: #16A34A !important;
+  color: #14532D !important;
 }
 .toast-success::before {
   content: '\f058';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
   color: #16A34A;
-  font-size: 18px;
 }
+.toast-success .toast-title  { color: #14532D !important; font-weight: 700 !important; }
+.toast-success .toast-message { color: #166534 !important; }
+.toast-success .toast-progress { background: #16A34A !important; }
+.toast-success .toast-close-button { color: #16A34A !important; }
 
-/* ─── Error ──────────────────────────────────────── */
+/* ─── Error — Red ────────────────────────────────── */
 .toast-error {
+  background-color: #FEF2F2 !important;
   border-left-color: #DC2626 !important;
-  background-image: none !important;
+  color: #7F1D1D !important;
 }
 .toast-error::before {
   content: '\f057';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
   color: #DC2626;
-  font-size: 18px;
 }
+.toast-error .toast-title   { color: #7F1D1D !important; font-weight: 700 !important; }
+.toast-error .toast-message { color: #991B1B !important; }
+.toast-error .toast-progress { background: #DC2626 !important; }
+.toast-error .toast-close-button { color: #DC2626 !important; }
 
-/* ─── Warning ────────────────────────────────────── */
+/* ─── Warning — Gold ─────────────────────────────── */
 .toast-warning {
+  background-color: #FFFBEB !important;
   border-left-color: #C9A84C !important;
-  background-image: none !important;
+  color: #78350F !important;
 }
 .toast-warning::before {
   content: '\f071';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
   color: #C9A84C;
-  font-size: 18px;
 }
+.toast-warning .toast-title   { color: #78350F !important; font-weight: 700 !important; }
+.toast-warning .toast-message { color: #92400E !important; }
+.toast-warning .toast-progress { background: #C9A84C !important; }
+.toast-warning .toast-close-button { color: #C9A84C !important; }
 
-/* ─── Info ───────────────────────────────────────── */
+/* ─── Info — Navy ────────────────────────────────── */
 .toast-info {
-  border-left-color: #1D4ED8 !important;
-  background-image: none !important;
+  background-color: #EFF6FF !important;
+  border-left-color: #0B1D3A !important;
+  color: #0B1D3A !important;
 }
 .toast-info::before {
   content: '\f05a';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #1D4ED8;
-  font-size: 18px;
+  color: #0B1D3A;
 }
-
-/* ─── Title ──────────────────────────────────────── */
-.ngx-toastr .toast-title {
-  font-weight: 700 !important;
-  font-size: 13px !important;
-  margin-bottom: 2px !important;
-  color: #ffffff !important;
-}
-
-/* ─── Message ────────────────────────────────────── */
-.ngx-toastr .toast-message {
-  color: rgba(255,255,255,0.8) !important;
-  font-size: 13px !important;
-}
+.toast-info .toast-title   { color: #0B1D3A !important; font-weight: 700 !important; }
+.toast-info .toast-message { color: #1E3A5F !important; }
+.toast-info .toast-progress { background: #0B1D3A !important; }
+.toast-info .toast-close-button { color: #0B1D3A !important; }
 
 /* ─── Progress Bar ───────────────────────────────── */
 .ngx-toastr .toast-progress {
   height: 3px !important;
   border-radius: 0 0 10px 10px !important;
-  opacity: 0.5 !important;
+  opacity: 0.6 !important;
 }
-
-.toast-success .toast-progress { background: #16A34A !important; }
-.toast-error   .toast-progress { background: #DC2626 !important; }
-.toast-warning .toast-progress { background: #C9A84C !important; }
-.toast-info    .toast-progress { background: #1D4ED8 !important; }
 
 /* ─── Close Button ───────────────────────────────── */
 .ngx-toastr .toast-close-button {
-  color: rgba(255,255,255,0.4) !important;
-  font-size: 16px !important;
-  font-weight: 400 !important;
+  position: absolute !important;
   top: 50% !important;
   right: 12px !important;
   transform: translateY(-50%) !important;
-  position: absolute !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  opacity: 0.6 !important;
+  background: none !important;
+  border: none !important;
+  line-height: 1 !important;
 }
 
-.ngx-toastr .toast-close-button:hover {
-  color: #ffffff !important;
-}
+.ngx-toastr .toast-close-button:hover { opacity: 1 !important; }
 
-/* ─── Hover ──────────────────────────────────────── */
+/* ─── Hover shadow ───────────────────────────────── */
 .ngx-toastr:hover {
-  box-shadow: 0 12px 40px rgba(11,29,58,0.35) !important;
-} 
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+}
+
+/* ─── Animation ──────────────────────────────────── */
+.toast-container .ngx-toastr {
+  animation: slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
