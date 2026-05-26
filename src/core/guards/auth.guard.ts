@@ -1,6 +1,7 @@
 import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = (): boolean | UrlTree => {
   const auth = inject(AuthService);
@@ -16,8 +17,10 @@ export const authGuard: CanActivateFn = (): boolean | UrlTree => {
 export const adminGuard: CanActivateFn = (): boolean | UrlTree => {
   const auth = inject(AuthService);
   const router = inject(Router);
+  const toast=inject(ToastrService)
 
   if (!auth.isLoggedIn()) {
+    toast.error("Access Denied");
     return router.createUrlTree(['/login']);
   }
 
